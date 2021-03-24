@@ -51,7 +51,4 @@ public class Doador {
 		builder.append(pontos);
 		return builder.toString();
 	}
-	
-	
-	
 }
