@@ -42,5 +42,16 @@ public class Doador {
 		this.pontos = pontos;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("E-mail: ");
+		builder.append(email);
+		builder.append("\n Sua pontuação: ");
+		builder.append(pontos);
+		return builder.toString();
+	}
+	
+	
 	
 }
