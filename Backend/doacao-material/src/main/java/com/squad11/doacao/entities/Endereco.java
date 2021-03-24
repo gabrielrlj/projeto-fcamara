@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Endereco {
@@ -18,6 +19,9 @@ public class Endereco {
 	private String cep;
 	private String cidade;
 	private String estado;
+	
+	@OneToOne(mappedBy = "endereco")
+	private Responsavel responsavel;
 	
 
 	
