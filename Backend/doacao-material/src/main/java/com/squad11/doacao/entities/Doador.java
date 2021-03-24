@@ -12,6 +12,7 @@ public class Doador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String email;
+	private String senha;
 	private Integer pontos;
 	
 	public Doador() {
@@ -40,6 +41,14 @@ public class Doador {
 	}
 	public void setPontos(Integer pontos) {
 		this.pontos = pontos;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
