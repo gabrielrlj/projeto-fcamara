@@ -20,4 +20,8 @@ public class ResponsavelService{
 		return responsavelRepository.save(obj);
 	}
 	
+	public Responsavel retornaResponsavel(Long id) {
+		return responsavelRepository.findById(id).get();
+	}
+	
 }
