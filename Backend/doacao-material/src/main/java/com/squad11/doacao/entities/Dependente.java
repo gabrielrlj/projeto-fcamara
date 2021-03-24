@@ -1,5 +1,6 @@
 package com.squad11.doacao.entities;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,8 +15,15 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
-public class Dependente {
+public class Dependente implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +31,7 @@ public class Dependente {
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "responsavel_id", nullable = false)
+	@JsonBackReference
 	private Responsavel responsavel;
 
 	@OneToMany(mappedBy = "dependente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
