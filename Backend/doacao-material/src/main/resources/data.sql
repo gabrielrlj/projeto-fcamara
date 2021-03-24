@@ -1,4 +1,3 @@
-/*Script para inserir um doador teste*/
 INSERT INTO DOADOR VALUES (1, 'fulano@gmail.com','12345', 0);
 INSERT INTO RESPONSAVEL VALUES (1, 'nicolas@gmail.com', 'Nicolas Silva', '912344321');
 INSERT INTO DEPENDENTE VALUES (1, 'etec sao lourenco', 10, 'Michele Silva', 'Oitava Série', 1);

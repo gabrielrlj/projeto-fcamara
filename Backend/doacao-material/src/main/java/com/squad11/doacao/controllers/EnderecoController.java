@@ -10,24 +10,23 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.squad11.doacao.entities.Endereco;
 import com.squad11.doacao.entities.Responsavel;
+import com.squad11.doacao.services.EnderecoService;
 import com.squad11.doacao.services.ResponsavelService;
 
 @RestController
 @RequestMapping("/responsaveis")
-public class ResponsavelController{
+public class EnderecoController{
 	
 	@Autowired
-	private ResponsavelService responsavelService;
+	private EnderecoService enderecoService;
 	
-	@PostMapping
-	public Responsavel cadastraResponsavel(@RequestBody Responsavel responsavel) {
-		return responsavelService.cadastraResponsavel(responsavel);
-	}
 	
-	@GetMapping("/{id}")
-	public Responsavel retornaResponsavelPorId(@PathVariable Long id) {
-		return responsavelService.retornaResponsavel(id);
+	@PostMapping("/{id}/enderecos")
+	public Endereco cadastraEndereco(@PathVariable Long id,  @RequestBody Endereco endereco) {
+		
+		return enderecoService.cadastraEndereco(id, endereco);
 	}
 
 }
