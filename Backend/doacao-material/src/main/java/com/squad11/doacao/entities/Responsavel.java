@@ -1,6 +1,7 @@
 package com.squad11.doacao.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -29,7 +30,7 @@ public class Responsavel implements Serializable{
 	private Long id;
 
 	@OneToMany(mappedBy = "responsavel", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Dependente> dependentes;
+	private List<Dependente> dependentes = new ArrayList<Dependente>();
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "responsavel_endereco", joinColumns = {

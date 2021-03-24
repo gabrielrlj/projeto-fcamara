@@ -1,6 +1,7 @@
 package com.squad11.doacao.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -35,7 +36,7 @@ public class Dependente implements Serializable{
 	private Responsavel responsavel;
 
 	@OneToMany(mappedBy = "dependente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Material> materiais;
+	private List<Material> materiais = new ArrayList<Material>();
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinTable(name = "dependente_doacao", joinColumns = {
