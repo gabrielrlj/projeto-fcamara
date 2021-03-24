@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import com.squad11.doacao.entities.Responsavel;
 import com.squad11.doacao.repositories.ResponsavelRepository;
 
@@ -13,5 +15,9 @@ public class ResponsavelService{
 	@Autowired
 	private ResponsavelRepository responsavelRepository;
 	
+	
+	public Responsavel cadastraResponsavel(Responsavel obj) {
+		return responsavelRepository.save(obj);
+	}
 	
 }
