@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.squad11.doacao.entities.Dependente;
 import com.squad11.doacao.entities.Responsavel;
 import com.squad11.doacao.services.ResponsavelService;
 
@@ -28,6 +29,11 @@ public class ResponsavelController{
 	@GetMapping("/{id}")
 	public Responsavel retornaResponsavelPorId(@PathVariable Long id) {
 		return responsavelService.retornaResponsavel(id);
+	}
+	
+	@GetMapping("/{id}/dependentes")
+	public List<Dependente> retornaDependentesPorId(@PathVariable Long id) {
+		return responsavelService.retornaDependentes(id);
 	}
 
 }
