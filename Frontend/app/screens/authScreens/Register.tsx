@@ -1,24 +1,27 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react'
-import { StyleSheet, Text, View } from "react-native";
+import Button from '../../components/Button';
 
+import CustomInput from '../../components/CustomInput';
+import CustomView from '../../components/CustomView';
 
 export default function RegisterScreen() {
-  return (
-    <View style={styles.container} >
-      <Text style={styles.text} >Register</Text>
-    </View>
-  )
-}
+  const navigation = useNavigation();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#000',
+  function handleRegisterButtonClick() {
+    // call API register...
+    // if success then
+    navigation.navigate('Auth', {screen: 'Login'});
   }
-})
+
+  return (
+    <CustomView >
+      <CustomInput placeholder="Usuário" />
+      <CustomInput placeholder="Email" />
+      <CustomInput placeholder="Senha" secureTextEntry={true} />
+      <CustomInput placeholder="Confirme a senha" secureTextEntry={true} />
+
+      <Button text="Cadastrar :)" onPress={handleRegisterButtonClick} />
+    </CustomView>
+  );
+}

@@ -1,24 +1,25 @@
-import React from 'react'
-import { StyleSheet, Text, View } from "react-native";
+import { useNavigation } from '@react-navigation/core';
+import React from 'react';
 
+import Button from '../../components/Button';
+import CustomInput from '../../components/CustomInput';
+import CustomView from '../../components/CustomView';
 
 export default function LoginScreen() {
+  const navigation = useNavigation();
+
+  function handleLoginButtonClick() {
+    // call API login...
+    // if success then
+    navigation.navigate('Dashboard');
+  }
+
   return (
-    <View style={styles.container} >
-      <Text style={styles.text} >Login</Text>
-    </View>
+    <CustomView >
+      <CustomInput placeholder="Usuário" />
+      <CustomInput placeholder="Senha" secureTextEntry={true} />
+
+      <Button text="Entrar!" onPress={handleLoginButtonClick} />
+    </CustomView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#000',
-  }
-})
