@@ -1,32 +1,29 @@
-import { isLoaded } from 'expo-font';
+import { RouteProp } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import Button from '../components/Button';
+import { RootStackParamList } from '../types';
+
+type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
+type DashboardRouteProp = RouteProp<RootStackParamList, 'Dashboard'>;
 
 interface DashboardProps {
-  navigation: any;
+  navigation: DashboardNavigationProps;
+  route: DashboardRouteProp;
 }
 
-export default function Dashboard({ navigation }: DashboardProps) {
-  // useEffect(() => {
-  //   navigation.reset({
-  //     index: 0,
-  //     actions: [
-  //       navigation.navigate('/')
-  //     ],
-  //     key: null,
-  //   })
-  // }, []);
+export default function Dashboard({ navigation, route }: DashboardProps) {
+  // When entry into the page clean the navigation history
+  useEffect(() => {
+    navigation.reset({
+      index: 0,
+      routes: [route]
+    })
+  }, []);
 
   function handleLogoutButton() {
     navigation.replace('Home');
-    // Alert.alert(
-    //   'Alerta!',
-    //   'Ainda não está configurado o botão desculpe-nos >_<',
-    //   [
-    //     { text: 'Okay, eu desculpo!', style: 'cancel', onPress: () => { } },
-    //   ]
-    // );
   }
 
   // const { isLogged, otherParams } = routes.params;
