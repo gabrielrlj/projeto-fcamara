@@ -10,7 +10,7 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
 }
 
-export default function AuthScreen() {
+export default function AuthBottomTab() {
   return (
     <BottomTab.Navigator
       initialRouteName="Login"
@@ -19,14 +19,14 @@ export default function AuthScreen() {
         name="Login"
         component={LoginScreen}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color="#000" />,
+          tabBarIcon: () => <TabBarIcon name="ios-code" color="#000" />,
         }}
       />
       <BottomTab.Screen
         name="Register"
         component={RegisterScreen}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color="#000" />,
+          tabBarIcon: () => <TabBarIcon name="ios-code" color="#000" />,
         }}
       />
     </BottomTab.Navigator>

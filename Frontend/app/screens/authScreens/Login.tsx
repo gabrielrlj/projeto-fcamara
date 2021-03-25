@@ -1,24 +1,16 @@
-import React from 'react'
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
 
+import Buttom from '../../components/Button';
+import CustomInput from '../../components/CustomInput';
+import CustomView from '../../components/CustomView';
 
 export default function LoginScreen() {
   return (
-    <View style={styles.container} >
-      <Text style={styles.text} >Login</Text>
-    </View>
+    <CustomView >
+      <CustomInput placeholder="Usuário" />
+      <CustomInput placeholder="Senha" secureTextEntry={true} />
+
+      <Buttom text="Entrar!" />
+    </CustomView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#000',
-  }
-})

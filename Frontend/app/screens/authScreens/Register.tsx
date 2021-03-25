@@ -1,24 +1,19 @@
 import React from 'react'
-import { StyleSheet, Text, View } from "react-native";
+import Buttom from '../../components/Button';
+
+import CustomInput from '../../components/CustomInput';
+import CustomView from '../../components/CustomView';
 
 
 export default function RegisterScreen() {
   return (
-    <View style={styles.container} >
-      <Text style={styles.text} >Register</Text>
-    </View>
-  )
-}
+    <CustomView >
+      <CustomInput placeholder="Usuário" />
+      <CustomInput placeholder="Usuário" />
+      <CustomInput placeholder="Senha" secureTextEntry={true} />
+      <CustomInput placeholder="Confirme a senha" secureTextEntry={true} />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#000',
-  }
-})
+      <Buttom text="Cadastrar :)" />
+    </CustomView>
+  );
+}
