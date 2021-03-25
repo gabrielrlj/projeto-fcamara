@@ -8,21 +8,25 @@ interface DashboardProps {
 }
 
 export default function Dashboard({ navigation }: DashboardProps) {
-  useEffect(() => {
-    navigation.addListener('beforeRemove', (e: any) => {
-      e.preventDefault();
-    });
-  }, []);
+  // useEffect(() => {
+  //   navigation.reset({
+  //     index: 0,
+  //     actions: [
+  //       navigation.navigate('/')
+  //     ],
+  //     key: null,
+  //   })
+  // }, []);
 
   function handleLogoutButton() {
-    // navigation.replace('Home');
-    Alert.alert(
-      'Alerta!',
-      'Ainda não está configurado o botão desculpe-nos >_<',
-      [
-        { text: 'Okay, eu desculpo!', style: 'cancel', onPress: () => { } },
-      ]
-    )
+    navigation.replace('Home');
+    // Alert.alert(
+    //   'Alerta!',
+    //   'Ainda não está configurado o botão desculpe-nos >_<',
+    //   [
+    //     { text: 'Okay, eu desculpo!', style: 'cancel', onPress: () => { } },
+    //   ]
+    // );
   }
 
   // const { isLogged, otherParams } = routes.params;

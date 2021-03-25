@@ -11,7 +11,7 @@ export default function RegisterScreen() {
   function handleRegisterButtonClick() {
     // call API register...
     // if success then
-    navigation.navigate('Login');
+    navigation.navigate('Auth', {screen: 'Login'});
   }
 
   return (
