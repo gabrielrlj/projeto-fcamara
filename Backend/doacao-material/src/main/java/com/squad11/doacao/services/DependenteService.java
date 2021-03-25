@@ -46,4 +46,13 @@ public class DependenteService {
 		return null;
 	}
 
+
+	public List<Dependente> retornaTodosDependentes() {
+		
+		return dependenteRepository.findAll();
+	}
+
+
+
+
 }
