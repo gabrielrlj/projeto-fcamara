@@ -31,9 +31,5 @@ public class ResponsavelController{
 		return responsavelService.retornaResponsavel(id);
 	}
 	
-	@GetMapping("/{id}/dependentes")
-	public List<Dependente> retornaDependentesPorId(@PathVariable Long id) {
-		return responsavelService.retornaDependentes(id);
-	}
 
 }
