@@ -10,13 +10,25 @@ export const AuthTab = {
   },
 };
 
+export const DashboardStack = {
+  Dashboard: {
+    path: 'dashboard',
+    screens: {
+      SponsorDashboard: 'sponsorDashboard',
+      DonorDashboard: 'donorDashboard',
+    },
+  },
+};
+
 const linkConfig = {
   screens: {
     Home: '',
     Auth: {
       screens: AuthTab,
     },
-    Dashboard: 'dashboard',
+    Dashboard: {
+      screens: DashboardStack,
+    },
     NotFound: '*',
   }
 };

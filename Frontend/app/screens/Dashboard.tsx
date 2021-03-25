@@ -1,9 +1,10 @@
 import { RouteProp } from '@react-navigation/core';
-import { StackNavigationProp } from '@react-navigation/stack';
+import { Link } from '@react-navigation/native';
+import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from "react-native";
 import Button from '../components/Button';
-import { RootStackParamList } from '../types';
+import { DashboardParamList, RootStackParamList, SponsorDashboardParamList } from '../types';
 
 type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
 type DashboardRouteProp = RouteProp<RootStackParamList, 'Dashboard'>;
@@ -13,7 +14,9 @@ interface DashboardProps {
   route: DashboardRouteProp;
 }
 
-export default function Dashboard({ navigation, route }: DashboardProps) {
+const DashboardStack = createStackNavigator<DashboardParamList>();
+
+export default function DashboardNavigator({ navigation, route }: DashboardProps) {
   // When entry into the page clean the navigation history
   useEffect(() => {
     navigation.reset({
@@ -31,12 +34,41 @@ export default function Dashboard({ navigation, route }: DashboardProps) {
   // return null; // Return something or just redirect to 'Home maybe Login'
   // } else {
   return (
-    <View style={styles.container} >
-      <Text style={styles.text} >Página inicial</Text>
-      <Button text="Sair :(" onPress={handleLogoutButton} />
-    </View>
+    <DashboardStack.Navigator
+      initialRouteName="SponsorDashboard"
+    >
+      <DashboardStack.Screen
+        name="SponsorDashboard"
+        component={SponsorDashboard}
+        options={{headerStyle: {
+          height: 90,
+        }}}
+      />
+      <DashboardStack.Screen
+        name="DonorDashboard"
+        component={DonorDashboard}
+      />
+    </DashboardStack.Navigator>
   );
   // }
+}
+
+function SponsorDashboard() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text} >Página inicial (Responsável)</Text>
+      <Link to="/" >Cadastrar materiais</Link>
+    </View>
+  );
+}
+
+function DonorDashboard() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text} >Página inicial (Doador)</Text>
+      <Link to="/" >Cadastrar materiais</Link>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -50,4 +82,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000',
   }
-})
+});
