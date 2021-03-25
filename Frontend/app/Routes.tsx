@@ -14,7 +14,7 @@ export default function Routes() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Auth" component={AuthBottomTab} />
-        <Stack.Screen name="Dashboard" component={Dashboard} />
+        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerLeft: () => null }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

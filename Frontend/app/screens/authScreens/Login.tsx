@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 
-import Buttom from '../../components/Button';
+import Button from '../../components/Button';
 import CustomInput from '../../components/CustomInput';
 import CustomView from '../../components/CustomView';
 
@@ -19,7 +19,7 @@ export default function LoginScreen() {
       <CustomInput placeholder="Usuário" />
       <CustomInput placeholder="Senha" secureTextEntry={true} />
 
-      <Buttom text="Entrar!" onPress={handleLoginButtonClick} />
+      <Button text="Entrar!" onPress={handleLoginButtonClick} />
     </CustomView>
   )
 }

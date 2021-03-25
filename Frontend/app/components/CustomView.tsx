@@ -1,13 +1,14 @@
 import React, { ReactNode } from 'react'
-import { StyleSheet, View, ViewProps } from 'react-native'
+import { StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native'
 
 interface CustomViewProps extends ViewProps {
-  children: ReactNode
+  children: ReactNode;
+  style?: StyleProp<ViewStyle>;
 }
 
-export default function CustomView({ children, ...rest}: CustomViewProps) {
+export default function CustomView({ children, style, ...rest}: CustomViewProps) {
   return (
-    <View {...rest} style={styles.container} >
+    <View {...rest} style={style ? style : styles.container} >
       {children}
     </View>
   )
