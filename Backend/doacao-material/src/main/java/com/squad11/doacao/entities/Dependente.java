@@ -42,6 +42,7 @@ public class Dependente implements Serializable{
 	@JoinTable(name = "dependente_doacao", joinColumns = {
 			@JoinColumn(name = "dependente_id", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "doacao_id", referencedColumnName = "id") })
+	@JsonBackReference
 	private Doacao doacao;
 
 	private String nome;
