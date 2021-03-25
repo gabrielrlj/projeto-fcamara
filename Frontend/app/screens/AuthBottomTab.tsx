@@ -4,7 +4,9 @@ import React from 'react';
 import LoginScreen from './authScreens/Login';
 import RegisterScreen from './authScreens/Register';
 
-const BottomTab = createBottomTabNavigator();
+import { AuthTabParamList } from '../types';
+
+const BottomTab = createBottomTabNavigator<AuthTabParamList>();
 
 function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
   return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;

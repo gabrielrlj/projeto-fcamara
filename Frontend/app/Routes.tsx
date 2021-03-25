@@ -1,31 +1,16 @@
-import { LinkingOptions, NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
+
+import { linking } from './navegating/RouteConfig';
 
 import AuthBottomTab from './screens/AuthBottomTab';
 import Dashboard from './screens/Dashboard';
 import HomeScreen from './screens/HomeScreen';
 
-const linkConfig = {
-  screens: {
-    Home: '',
-    Auth: {
-      path: 'auth',
-      screens: {
-        Login: 'login',
-        Register: 'register',
-      }
-    },
-    Dashboard: 'dashboard',
-  }
-};
+import { RootStackParamList } from './types';
 
-const linking: LinkingOptions = {
-  prefixes: ['/'],
-  config: linkConfig,
-}
-
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function Routes() {
   return (
