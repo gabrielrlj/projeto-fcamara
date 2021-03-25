@@ -4,8 +4,8 @@ import React from 'react';
 
 import { linking } from './navegating/RouteConfig';
 
-import AuthBottomTab from './screens/AuthBottomTab';
-import Dashboard from './screens/Dashboard';
+import AuthBottomTab from './components/AuthBottomTab';
+import DashboardNavigator from './screens/Dashboard';
 import HomeScreen from './screens/HomeScreen';
 
 import { RootStackParamList } from './types';
@@ -18,7 +18,11 @@ export default function Routes() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Auth" component={AuthBottomTab} />
-        <Stack.Screen name="Dashboard" component={Dashboard} options={{ headerLeft: () => null }} />
+        <Stack.Screen
+          name="Dashboard"
+          component={DashboardNavigator}
+          options={{ header: () => null}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

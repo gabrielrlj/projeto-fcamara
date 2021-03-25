@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import LoginScreen from './authScreens/Login';
-import RegisterScreen from './authScreens/Register';
+import LoginScreen from '../screens/authScreens/Login';
+import RegisterScreen from '../screens/authScreens/Register';
 
 import { AuthTabParamList } from '../types';
 

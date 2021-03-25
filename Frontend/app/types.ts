@@ -9,6 +9,12 @@ export type AuthTabParamList = {
   Register: undefined;
 };
 
-// export type Dashboard = {
+export type SponsorDashboardParamList = {
+  RegisterMaterials: undefined;
+  StudentData: undefined;
+};
 
-// };
+export type DashboardParamList = {
+  SponsorDashboard: undefined;
+  DonorDashboard: undefined;
+}
