@@ -8,25 +8,22 @@ import com.squad11.doacao.entities.Dependente;
 import com.squad11.doacao.entities.Material;
 import com.squad11.doacao.repositories.MaterialRepository;
 
-
-
 @Service
 public class MaterialService {
-	
+	@Autowired
+	private DependenteService dependenteService;
+
 	@Autowired
 	private MaterialRepository materialRepository;
-	
-	public Material cadastraMaterial (Material material, Integer quantidade, String descricao, Dependente dependente) {
-		material.setQuantidade(quantidade);
+
+	public Material cadastraMaterial(Material material, Long dependente_id, Long responsavel_id) {
+
+		Dependente dependente = dependenteService.retornaDependente(responsavel_id, dependente_id);
+		dependente.getMateriais().add(material);
 		material.setDependente(dependente);
-		material.setDescricao(descricao);
+
 		return materialRepository.save(material);
-	
-	
-		 
-	}
-
 
 	}
 
-
+}

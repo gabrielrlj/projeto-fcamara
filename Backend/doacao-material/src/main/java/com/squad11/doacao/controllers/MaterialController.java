@@ -12,7 +12,6 @@ import com.squad11.doacao.entities.Material;
 import com.squad11.doacao.services.MaterialService;
 
 @RestController
-@RequestMapping("/dependentes")
 
 public class MaterialController {
 	
@@ -20,10 +19,13 @@ public class MaterialController {
 	@Autowired
 	private MaterialService materialService;
 	
-	@PostMapping("/material")
-	public Material cadastraMaterial (@PathVariable Long id, @RequestBody Material material, Dependente dependente, Integer quantidade, String descricao) {
-		return materialService.cadastraMaterial(material, quantidade, descricao, dependente);
+	@PostMapping("/responsaveis/{responsavel_id}/dependentes/{dependente_id}/materiais")
+	public Material cadastraMaterial (@PathVariable Long responsavel_id, @PathVariable Long dependente_id,
+	@RequestBody Material material){
+		return materialService.cadastraMaterial(material, dependente_id, responsavel_id);
 	}
+	
+	
 		
 	}
 		

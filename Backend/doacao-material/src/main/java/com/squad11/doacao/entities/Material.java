@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Material implements Serializable{
 
@@ -25,6 +27,7 @@ public class Material implements Serializable{
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "dependente_id", nullable = false)
+	@JsonBackReference
 	private Dependente dependente;
 
 	public Material() {
