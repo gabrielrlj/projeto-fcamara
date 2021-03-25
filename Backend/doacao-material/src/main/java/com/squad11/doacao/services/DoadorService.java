@@ -20,5 +20,9 @@ public class DoadorService {
 		return doadorRepository.save(doador);
 	}
 
+	public Doador retornaDoador(Long doador_id) {
+		return doadorRepository.findById(doador_id).get();
+	}
+
 
 }

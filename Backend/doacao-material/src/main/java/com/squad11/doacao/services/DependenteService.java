@@ -53,6 +53,12 @@ public class DependenteService {
 	}
 
 
+	public Dependente retornaDependentePorId(Long dependente_id) {
+		
+		return dependenteRepository.findById(dependente_id).get();
+	}
+
+
 
 
 }
