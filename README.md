@@ -8,7 +8,7 @@ Projeto do Programa de Formação da FCamara
 ## Frontend
 
 Para rodar o aplicativo, tenha o [Expo CLI](https://expo.io/tools#cli) instalado.
-Após isso entre na pasta app no terminal rode:
+Após isso entre na pasta app no terminal e rode:
 
 ```bash
 # Se tiver yarn instalado
