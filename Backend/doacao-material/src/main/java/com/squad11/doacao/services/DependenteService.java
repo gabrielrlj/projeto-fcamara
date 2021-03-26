@@ -1,6 +1,7 @@
 package com.squad11.doacao.services;
 
 import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +30,35 @@ public class DependenteService {
 		
 		return dependenteRepository.save(dependente);
 	}
+
+
+	public Dependente retornaDependente(Long responsavel_id, Long dependente_id) {
+		
+		Responsavel responsavel = responsavelService.retornaResponsavel(responsavel_id);
+		List<Dependente> dependentes = responsavel.getDependentes();
+		
+		Dependente dependente = dependenteRepository.findById(dependente_id).get();
+		
+		if(dependentes.contains(dependente)) {
+			return dependente;
+		}
+		
+		return null;
+	}
+
+
+	public List<Dependente> retornaTodosDependentes() {
+		
+		return dependenteRepository.findAll();
+	}
+
+
+	public Dependente retornaDependentePorId(Long dependente_id) {
+		
+		return dependenteRepository.findById(dependente_id).get();
+	}
+
+
+
 
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.squad11.doacao.entities.Dependente;
 import com.squad11.doacao.entities.Responsavel;
 import com.squad11.doacao.repositories.ResponsavelRepository;
 
@@ -22,6 +23,12 @@ public class ResponsavelService{
 	
 	public Responsavel retornaResponsavel(Long id) {
 		return responsavelRepository.findById(id).get();
+	}
+
+	public List<Dependente> retornaDependentes(Long id) {
+		Responsavel responsavel = responsavelRepository.findById(id).get();
+		
+		return responsavel.getDependentes();
 	}
 	
 }

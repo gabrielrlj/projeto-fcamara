@@ -11,24 +11,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.squad11.doacao.entities.Dependente;
-import com.squad11.doacao.entities.Responsavel;
-import com.squad11.doacao.services.ResponsavelService;
+import com.squad11.doacao.entities.Doador;
+import com.squad11.doacao.services.DependenteService;
+import com.squad11.doacao.services.DoadorService;
+
 
 @RestController
-@RequestMapping("/responsaveis")
-public class ResponsavelController{
+@RequestMapping("/doadores")
+public class DoadorController{
 	
 	@Autowired
-	private ResponsavelService responsavelService;
+	private DoadorService doadorService;
+	
+	@Autowired
+	private DependenteService dependenteService;
 	
 	@PostMapping
-	public Responsavel cadastraResponsavel(@RequestBody Responsavel responsavel) {
-		return responsavelService.cadastraResponsavel(responsavel);
+	public Doador cadastraDoador(@RequestBody Doador doador) {
+		return doadorService.cadastraDoador(doador);
 	}
 	
-	@GetMapping("/{id}")
-	public Responsavel retornaResponsavelPorId(@PathVariable Long id) {
-		return responsavelService.retornaResponsavel(id);
+	@GetMapping("/dependentes")
+	public List<Dependente> retornaDependentes(){
+		return dependenteService.retornaTodosDependentes();
 	}
 	
 

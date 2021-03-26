@@ -1,6 +1,7 @@
 package com.squad11.doacao.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Doador implements Serializable{
@@ -27,7 +30,8 @@ public class Doador implements Serializable{
 	private Long id;
 
 	@OneToMany(mappedBy = "doador", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Doacao> doacoes;
+	@JsonBackReference
+	private List<Doacao> doacoes = new ArrayList<Doacao>();
 
 	private String email;
 	private String senha;
