@@ -16,17 +16,20 @@ import com.squad11.doacao.services.EnderecoService;
 import com.squad11.doacao.services.ResponsavelService;
 
 @RestController
-@RequestMapping("/responsaveis")
 public class EnderecoController{
 	
 	@Autowired
 	private EnderecoService enderecoService;
 	
 	
-	@PostMapping("/{id}/enderecos")
+	@PostMapping("/responsaveis/{id}/enderecos")
 	public Endereco cadastraEndereco(@PathVariable Long id,  @RequestBody Endereco endereco) {
 		
 		return enderecoService.cadastraEndereco(id, endereco);
 	}
 
+	@GetMapping("enderecos/cidades")
+	public List<String> retornaCidades(){
+		return enderecoService.retornaCidadesCadastradas();
+	}
 }
