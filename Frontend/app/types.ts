@@ -1,7 +1,7 @@
 export type RootStackParamList = {
   Home: undefined;
-  Auth: undefined;
-  Dashboard: undefined;
+  Auth: AuthTabParamList;
+  Dashboard: { currentScreen: 'SponsorDashboard' | 'DonorDashboard' | 'RegisterMaterials' } | undefined;
 };
 
 export type AuthTabParamList = {
@@ -17,4 +17,5 @@ export type SponsorDashboardParamList = {
 export type DashboardParamList = {
   SponsorDashboard: undefined;
   DonorDashboard: undefined;
+  RegisterMaterials: undefined;
 }

@@ -16,6 +16,7 @@ export const DashboardStack = {
     screens: {
       SponsorDashboard: 'sponsorDashboard',
       DonorDashboard: 'donorDashboard',
+      RegisterMaterials: 'registerMaterials',
     },
   },
 };

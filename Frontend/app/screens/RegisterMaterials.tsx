@@ -13,8 +13,8 @@ export default function RegisterMaterials() {
 
   return (
     <View style={styles.container} >
-      <Text style={styles.text} >Cadastrar materiais</Text>
-      <Button text="Cancelar" onPress={handleCancelButton} />
+      <Text style={styles.text} >Página cadastrar materiais</Text>
+      <Button text="Voltar" onPress={handleCancelButton} />
     </View>
   );
 }
