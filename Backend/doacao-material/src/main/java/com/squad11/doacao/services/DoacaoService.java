@@ -31,9 +31,9 @@ public class DoacaoService {
 		
 		doacao = new Doacao(null, LocalDate.now(), dependente, doador,EstadoDoacao.AGUARDANDO);
 		
+		doador.setPontos(doador.getPontos()+50);
 		doador.getDoacoes().add(doacao);
 		dependente.setDoacao(doacao);
-	
 		
 		return doacaoRepository.save(doacao);
 	}
