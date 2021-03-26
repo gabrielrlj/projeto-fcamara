@@ -12,25 +12,25 @@ import com.squad11.doacao.repositories.EnderecoRepository;
 import com.squad11.doacao.repositories.ResponsavelRepository;
 
 @Service
-public class EnderecoService{
+public class EnderecoService {
 
 	@Autowired
 	private EnderecoRepository enderecoRepository;
-	
+
 	@Autowired
 	private ResponsavelService responsavelService;
-	
-	
+
 	public Endereco cadastraEndereco(Long responsavel_id, Endereco endereco) {
-		
+
 		Responsavel responsavel = responsavelService.retornaResponsavel(responsavel_id);
-		
+
 		responsavel.setEndereco(endereco);
 		endereco.setResponsavel(responsavel);
-		
-		//responsavelService.cadastraResponsavel(responsavel);
-		
 		return enderecoRepository.save(endereco);
 	}
-	
+
+	public List<String> retornaCidadesCadastradas() {
+		return enderecoRepository.findAllCidades();
+	}
+
 }
