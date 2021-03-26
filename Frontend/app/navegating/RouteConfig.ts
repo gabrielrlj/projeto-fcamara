@@ -10,17 +10,29 @@ export const AuthTab = {
   },
 };
 
+export const SponsorNavigator = {
+  SponsorStackNavigator: {
+    path: 'sponsorNavigator',
+    screens: {
+      RegisterMaterials: 'registerMaterials',
+    }
+  },
+}
+
+// Main Dashboard Navigator Controller
 export const DashboardStack = {
   Dashboard: {
     path: 'dashboard',
     screens: {
-      SponsorDashboard: 'sponsorDashboard',
+      SponsorNavigator: {
+        screens: SponsorNavigator,
+      },
       DonorDashboard: 'donorDashboard',
-      RegisterMaterials: 'registerMaterials',
     },
   },
 };
 
+// Root Navigator Controller
 const linkConfig = {
   screens: {
     Home: '',
