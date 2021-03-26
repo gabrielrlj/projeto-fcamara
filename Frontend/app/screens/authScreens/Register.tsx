@@ -1,17 +1,21 @@
 import { useNavigation } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react'
 import Button from '../../components/Button';
 
 import CustomInput from '../../components/CustomInput';
 import CustomView from '../../components/CustomView';
+import { AuthTabParamList } from '../../types';
+
+type RegisterNavigationProps = StackNavigationProp<AuthTabParamList, 'Register'>;
 
 export default function RegisterScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RegisterNavigationProps>();
 
   function handleRegisterButtonClick() {
     // call API register...
     // if success then
-    navigation.navigate('Auth', {screen: 'Login'});
+    navigation.navigate('Login');
   }
 
   return (
