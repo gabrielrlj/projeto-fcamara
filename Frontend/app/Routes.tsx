@@ -9,6 +9,7 @@ import DashboardNavigator from './screens/Dashboard';
 import HomeScreen from './screens/HomeScreen';
 import LoginDonor from './screens/authScreens/LoginDonor';
 
+
 import { RootStackParamList } from './types';
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -19,7 +20,7 @@ export default function Routes() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Auth" component={AuthBottomTab} />
-        <Stack.Screen name="LoginDonor" component={LoginDonor} />
+        <Stack.Screen name="AuthLoginDonor" component={LoginDonor} options={{header:()=>null}} />
         <Stack.Screen
           name="Dashboard"
           component={DashboardNavigator}

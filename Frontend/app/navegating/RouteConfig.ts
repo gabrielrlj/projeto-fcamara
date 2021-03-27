@@ -10,6 +10,15 @@ export const AuthTab = {
   },
 };
 
+export const LoginDonorStack = {
+  AuthLoginDonor: {
+    path: 'authLoginDonor',
+    screens: {
+      LoginDonor: 'loginDonor',
+    },
+  },
+};
+
 export const DashboardStack = {
   Dashboard: {
     path: 'dashboard',
@@ -21,6 +30,7 @@ export const DashboardStack = {
   },
 };
 
+
 const linkConfig = {
   screens: {
     Home: '',
@@ -29,6 +39,9 @@ const linkConfig = {
     },
     Dashboard: {
       screens: DashboardStack,
+    },
+    AuthLoginDonor: {
+      screens: LoginDonorStack,
     },
     NotFound: '*',
   }
