@@ -41,6 +41,7 @@ public class Responsavel implements Serializable{
 	private String telefone;
 	private String email;
 	private String nome;
+	private String senha;
 
 	public Responsavel() {
 
