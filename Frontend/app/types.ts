@@ -1,7 +1,6 @@
 export type RootStackParamList = {
   Home: undefined;
   Auth: AuthTabParamList;
-  AuthLoginDonor:undefined;
   Dashboard: { currentScreen: 'SponsorDashboard' | 'DonorDashboard' | 'RegisterMaterials'} | undefined;
 };
 
@@ -21,11 +20,14 @@ export type DashboardParamList = {
   RegisterMaterials: undefined;
 };
 
-export type LoginDonorParamList = {
-  LoginDonor: undefined;
+ export type DonorParamList = {
+   LoginDonor: undefined;
+   RegisterDonor:undefined  
 };
 
-export type RootLoginDonor = {
+export type RootStackDonor = {
   LoginDonor: undefined;
-  AuthLoginDonor:{currentScreen:'authLoginDonor'} | undefined
+  RegisterDonor:undefined;  
+  AuthDonor:{currentScreen:'AuthLoginDonor'} | undefined
 };
+

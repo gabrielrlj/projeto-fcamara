@@ -10,11 +10,12 @@ export const AuthTab = {
   },
 };
 
-export const LoginDonorStack = {
+export const DonorStack = {
   AuthLoginDonor: {
     path: 'authLoginDonor',
     screens: {
       LoginDonor: 'loginDonor',
+      RegisterDonor:'registerDonor'
     },
   },
 };
@@ -41,7 +42,7 @@ const linkConfig = {
       screens: DashboardStack,
     },
     AuthLoginDonor: {
-      screens: LoginDonorStack,
+      screens: DonorStack,
     },
     NotFound: '*',
   }
