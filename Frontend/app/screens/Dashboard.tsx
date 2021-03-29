@@ -19,7 +19,7 @@ interface DashboardProps {
 const DashboardStack = createStackNavigator<DashboardParamList>();
 
 export default function DashboardNavigator({ navigation, route }: DashboardProps) {
-  const currentScreen = route.params?.currentScreen;
+  // const currentScreen = route.params?.currentScreen;
 
   // When entry into the page clean the navigation history
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
 
   return (
     <DashboardStack.Navigator
-      initialRouteName={currentScreen || 'SponsorNavigator' || 'Registerdonor'}
+      initialRouteName={'SponsorNavigator'} // Expect the user type to set the default dashboard
     >
       <DashboardStack.Screen
         name="SponsorNavigator"
@@ -44,8 +44,8 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
         
       />
       <DashboardStack.Screen
-        name="RegisterDonor"
-        component={RegisterDonor}
+        name="DonorDashboard"
+        component={() => null} // Create the DonoDashboard and put thier component, now is returning null
       />
     </DashboardStack.Navigator>
   );
