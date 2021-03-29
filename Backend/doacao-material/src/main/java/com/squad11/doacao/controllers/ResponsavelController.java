@@ -2,6 +2,8 @@ package com.squad11.doacao.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +24,7 @@ public class ResponsavelController{
 	private ResponsavelService responsavelService;
 	
 	@PostMapping
-	public Responsavel cadastraResponsavel(@RequestBody Responsavel responsavel) {
+	public Responsavel cadastraResponsavel(@RequestBody @Valid Responsavel responsavel) {
 		return responsavelService.cadastraResponsavel(responsavel);
 	}
 	

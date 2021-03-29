@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -39,7 +41,11 @@ public class Responsavel implements Serializable{
 	private Endereco endereco;
 
 	private String telefone;
+	
+	@NotBlank
+	@Email
 	private String email;
+	@NotBlank
 	private String nome;
 
 	public Responsavel() {
