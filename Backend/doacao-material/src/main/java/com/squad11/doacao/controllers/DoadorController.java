@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.squad11.doacao.entities.Dependente;
 import com.squad11.doacao.entities.Doador;
+import com.squad11.doacao.entities.DoadorDTO;
+import com.squad11.doacao.entities.Responsavel;
+import com.squad11.doacao.entities.ResponsavelDTO;
 import com.squad11.doacao.services.DependenteService;
 import com.squad11.doacao.services.DoadorService;
 
@@ -36,5 +39,10 @@ public class DoadorController{
 		return dependenteService.retornaTodosDependentes();
 	}
 	
+	@PostMapping("/login")
+	public Doador login(@RequestBody DoadorDTO doadorDTO) {
+		
+		return doadorService.login(doadorDTO.getEmail(), doadorDTO.getSenha());
+	}
 
 }

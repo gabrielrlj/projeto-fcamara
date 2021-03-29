@@ -34,6 +34,9 @@ public class ResponsavelService{
 	public Responsavel login(String email, String senha) {
 		
 		Responsavel responsavel = responsavelRepository.findByEmail(email);
+		if(responsavel == null) {
+			return null;
+		}
 		if(responsavel.getSenha().equals(senha)) {
 			return responsavel;
 		}
