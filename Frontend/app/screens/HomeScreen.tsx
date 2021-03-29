@@ -6,11 +6,12 @@ export default function HomeScreen() {
   return (
     <View style={styles.container} >
       <Text style={styles.text} >Eae, que tal doar hoje?</Text>
-      <Link to="/auth" >Sim, quero doar!</Link>
+      <Link to="/authDefault" >Sim, quero doar!</Link>
       
       <Text style={styles.text} >Ou vai querer uma ajudinha?</Text>
       <Link to="/auth" >Uma ajudinha é melhor hoje</Link>
     </View>
+    
   )
 }
 
