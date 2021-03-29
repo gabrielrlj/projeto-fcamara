@@ -31,5 +31,10 @@ public class ResponsavelController{
 		return responsavelService.retornaResponsavel(id);
 	}
 	
+	@GetMapping("/login/{email}/{senha}")
+	public Responsavel login(@PathVariable String email, @PathVariable String senha) {
+		return responsavelService.login(email, senha);
+	}
+	
 
 }

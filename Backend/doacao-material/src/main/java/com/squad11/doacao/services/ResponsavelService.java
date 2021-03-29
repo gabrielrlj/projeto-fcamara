@@ -31,4 +31,14 @@ public class ResponsavelService{
 		return responsavel.getDependentes();
 	}
 	
+	public Responsavel login(String email, String senha) {
+		
+		Responsavel responsavel = responsavelRepository.findByEmail(email);
+		if(responsavel.getSenha().equals(senha)) {
+			return responsavel;
+		}
+		
+		return null;
+	}
+	
 }

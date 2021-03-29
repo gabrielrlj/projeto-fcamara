@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Responsavel implements Serializable{
+public class Responsavel implements Serializable {
 
 	/**
 	 * 
@@ -47,13 +47,19 @@ public class Responsavel implements Serializable{
 
 	}
 
-	public Responsavel(Long id, String nome, Endereco endereco, String telefone, String email) {
+
+	public Responsavel(Long id, List<Dependente> dependentes, Endereco endereco, String telefone, String email,
+			String nome, String senha) {
+		super();
 		this.id = id;
-		this.nome = nome;
+		this.dependentes = dependentes;
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.email = email;
+		this.nome = nome;
+		this.senha = senha;
 	}
+
 
 	public Long getId() {
 		return id;
@@ -61,6 +67,14 @@ public class Responsavel implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getNome() {
