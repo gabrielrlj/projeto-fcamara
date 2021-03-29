@@ -5,6 +5,7 @@ import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from "react-native";
 import Button from '../components/Button';
 import { DashboardParamList, RootStackParamList } from '../types';
+import RegisterDonor from './authScreens/RegisterDonor';
 import SponsorNavigator from './SponsorScreen';
 
 type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
@@ -35,7 +36,7 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
 
   return (
     <DashboardStack.Navigator
-      initialRouteName={currentScreen || 'SponsorNavigator'}
+      initialRouteName={currentScreen || 'SponsorNavigator' || 'Registerdonor'}
     >
       <DashboardStack.Screen
         name="SponsorNavigator"
@@ -43,19 +44,10 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
         
       />
       <DashboardStack.Screen
-        name="DonorDashboard"
-        component={DonorDashboard}
+        name="RegisterDonor"
+        component={RegisterDonor}
       />
     </DashboardStack.Navigator>
-  );
-}
-
-function DonorDashboard() {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text} >Página inicial (Doador)</Text>
-      <Link to="/" >Cadastrar materiais</Link>
-    </View>
   );
 }
 
