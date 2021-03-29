@@ -19,13 +19,13 @@ export default function RegisterDonor({ navigation, route }: RegisterDonorProps)
 
     // const é constante 
     // handleChange recebe e que recebe o valor setado de Email com o valor de e
-    const handleChangeEmail = e => {
+    const handleChangeEmail = (e: string) => {
         setEmail(e);
       }
-      const handleChangePassword = e => {
+      const handleChangePassword = (e: string) => {
         setPassword(e);
       }
-      const handleChangeConfirmPassword = e => {
+      const handleChangeConfirmPassword = (e: string) => {
         setConfirmPassword(e);
       }
 
