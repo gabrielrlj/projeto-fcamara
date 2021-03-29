@@ -8,4 +8,5 @@ import com.squad11.doacao.entities.Responsavel;
 @Repository
 public interface ResponsavelRepository extends JpaRepository<Responsavel, Long>{
 
+	Responsavel findByEmail(String email);
 }
