@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.squad11.doacao.entities.Dependente;
 import com.squad11.doacao.entities.Responsavel;
+import com.squad11.doacao.entities.ResponsavelDTO;
 import com.squad11.doacao.services.ResponsavelService;
 
 @RestController
@@ -31,9 +32,10 @@ public class ResponsavelController{
 		return responsavelService.retornaResponsavel(id);
 	}
 	
-	@GetMapping("/login/{email}/{senha}")
-	public Responsavel login(@PathVariable String email, @PathVariable String senha) {
-		return responsavelService.login(email, senha);
+	@PostMapping("/login")
+	public Responsavel login(@RequestBody ResponsavelDTO responsavelDTO) {
+		
+		return responsavelService.login(responsavelDTO.getEmail(), responsavelDTO.getSenha());
 	}
 	
 
