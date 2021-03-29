@@ -10,25 +10,22 @@ export const AuthTab = {
   },
 };
 
-//aqui
-
 export const AuthDefaultTab = {
   AuthDefault: {
     path: 'authDefault',
     screens: {
       DefaultLogin: 'defaultLogin',
       RegisterDonor: 'registerDonor',
+      SponsorRegisger: 'sponsorRegister',
     },
   },
 };
-
-
-//fim
 
 export const SponsorNavigator = {
   SponsorStackNavigator: {
     path: 'sponsorNavigator',
     screens: {
+      SponsorDashboard: 'sponsorDashboard',
       RegisterMaterials: 'registerMaterials',
     }
   },

@@ -7,15 +7,15 @@ import CustomInput from '../../components/CustomInput';
 import CustomView from '../../components/CustomView';
 import { AuthTabParamList } from '../../types';
 
-type RegisterNavigationProps = StackNavigationProp<AuthTabParamList, 'Register'>;
+type RegisterNavigationProps = StackNavigationProp<AuthTabParamList, 'SponsorRegister'>;
 
-export default function RegisterScreen() {
+export default function SponsorRegister() {
   const navigation = useNavigation<RegisterNavigationProps>();
 
   function handleRegisterButtonClick() {
     // call API register...
     // if success then
-    navigation.navigate('Login');
+    navigation.navigate('DefaultLogin');
   }
 
   return (

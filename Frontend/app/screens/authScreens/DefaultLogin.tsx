@@ -1,13 +1,13 @@
 import { StackNavigationProp } from '@react-navigation/stack'
 import React, { useState, useEffect } from 'react'
-import { RouteProp } from '@react-navigation/native'
-import { RootStackParamList } from '../../types';
+import { RouteProp, useNavigation } from '@react-navigation/native'
+import { AuthTabParamList, RootStackParamList } from '../../types';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from 'react-native'
-import IconLogin from '../../assets/images/elo-escolar-1.png'
+// import IconLogin from '../../assets/images/elo-escolar-1.png'
 
-
-type AuthNavigationProps = StackNavigationProp<RootStackParamList, 'Auth'>;
-type AuthRouteProp = RouteProp<RootStackParamList, 'Auth'>;
+type RootNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
+type AuthNavigationProps = StackNavigationProp<AuthTabParamList, 'DefaultLogin'>;
+type AuthRouteProp = RouteProp<AuthTabParamList, 'DefaultLogin'>;
 
 
 interface LoginProps {
@@ -16,15 +16,26 @@ interface LoginProps {
 }
 
 export default function DefaultLogin({ navigation, route }: LoginProps) {
+  const navigationHook = useNavigation<RootNavigationProps>();
+
   // hook - constante criada nome email e setEmail function que define valor de email. Usestate é o estado atual
   // state se inicia com null
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  function RegisterDonorScreen() {
-    navigation.navigate('Dashboard', { currentScreen: 'RegisterDonor' });
+  function registerDonorScreen() {
+    navigation.navigate('RegisterDonor');
   }
 
+  function handleLoginButtonClick() {
+    // call API login...
+    // if success then
+    navigationHook.navigate('Dashboard');
+  }
+
+  function handleSponsorRegister() {
+    navigation.navigate('SponsorRegister');
+  }
 
   // const é constante 
   // handleChange recebe e que recebe o valor setado de Email com o valor de e
@@ -37,7 +48,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
 
   return (
     <View style={styles.container}>
-      <Image source={IconLogin} style={styles.image} />
+      {/* <Image source={IconLogin} style={styles.image} /> */}
       <TextInput placeholder='E-mail' style={styles.input}
         autoFocus={true} keyboardType='email-address'
         value={email}
@@ -54,15 +65,15 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
         }}>
       </TextInput>
 
-      <TouchableOpacity onPress={() => { }} style={styles.buttom}>
+      <TouchableOpacity onPress={handleLoginButtonClick} style={styles.buttom}>
         <Text style={styles.buttomText}>Entrar</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={RegisterDonorScreen} style={styles.buttom}>
+      <TouchableOpacity onPress={registerDonorScreen} style={styles.buttom}>
         <Text style={styles.buttomText}>Cadastre-se como doador</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => { }} style={styles.buttom}>
+      <TouchableOpacity onPress={handleSponsorRegister} style={styles.buttom}>
         <Text style={styles.buttomText}>Cadastre-se como beneficiado</Text>
       </TouchableOpacity>
     </View>

@@ -4,8 +4,9 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
 import { DashboardParamList, RootStackParamList, SponsorNavigatorParamList } from '../types';
+import RegisterMaterials from './RegisterMaterials';
 
-type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
+type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
 type SponsordNavigationProps = StackNavigationProp<SponsorNavigatorParamList, 'SponsorDashboard'>;
 type SponsordRouteProp = RouteProp<DashboardParamList, 'SponsorNavigator'>;
 
@@ -25,6 +26,11 @@ export default function SponsorNavigator() {
         name="SponsorDashboard"
         component={SponsorDashboard}
       />
+
+      <SponsorStack.Screen
+        name="RegisterMaterials"
+        component={RegisterMaterials}
+      />
     </SponsorStack.Navigator>
   );
 }
@@ -37,7 +43,7 @@ function SponsorDashboard({ navigation }: SponsorProps ) {
   }
 
   function handleLogOutButton() {
-    navigationHook.replace('Home');
+    navigationHook.replace('AuthDefault');
   }
 
   return (
