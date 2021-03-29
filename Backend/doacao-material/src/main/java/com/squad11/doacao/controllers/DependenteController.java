@@ -2,6 +2,8 @@ package com.squad11.doacao.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +25,7 @@ public class DependenteController {
 	private ResponsavelService responsavelService;
 
 	@PostMapping("/responsaveis/{responsavel_id}/dependentes")
-	public Dependente cadastraDependente(@PathVariable Long responsavel_id, @RequestBody Dependente dependente) {
+	public Dependente cadastraDependente(@PathVariable Long responsavel_id, @RequestBody @Valid Dependente dependente) {
 		return dependenteService.cadastraDependente(responsavel_id, dependente);
 	}
 	

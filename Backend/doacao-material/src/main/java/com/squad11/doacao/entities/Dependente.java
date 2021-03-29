@@ -15,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -44,8 +45,9 @@ public class Dependente implements Serializable{
 					@JoinColumn(name = "doacao_id", referencedColumnName = "id") })
 	@JsonBackReference
 	private Doacao doacao;
-
+	@NotBlank
 	private String nome;
+	@NotBlank
 	private String escola;
 	private Integer idade;
 	private String serie;

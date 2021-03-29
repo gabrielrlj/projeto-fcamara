@@ -2,6 +2,8 @@ package com.squad11.doacao.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,7 +32,7 @@ public class DoadorController{
 	private DependenteService dependenteService;
 	
 	@PostMapping
-	public Doador cadastraDoador(@RequestBody Doador doador) {
+	public Doador cadastraDoador(@RequestBody @Valid Doador doador) {
 		return doadorService.cadastraDoador(doador);
 	}
 	

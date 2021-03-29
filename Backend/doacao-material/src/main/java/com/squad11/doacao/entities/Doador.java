@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -32,9 +34,14 @@ public class Doador implements Serializable{
 	@OneToMany(mappedBy = "doador", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JsonBackReference
 	private List<Doacao> doacoes = new ArrayList<Doacao>();
-
+	
+	@NotBlank
+	@Email
 	private String email;
+	
+	@NotBlank
 	private String senha;
+	
 	private Integer pontos;
 
 	public Doador() {
