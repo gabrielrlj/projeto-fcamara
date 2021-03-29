@@ -1,10 +1,14 @@
 import { useNavigation } from '@react-navigation/core';
+import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
+import { SponsorNavigatorParamList } from '../types';
+
+type RegisterMaterialsNavigator = StackNavigationProp<SponsorNavigatorParamList, 'RegisterMaterials'>;
 
 export default function RegisterMaterials() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<RegisterMaterialsNavigator>();
 
   function handleCancelButton() {
     // Clean the inputs and data collected
