@@ -87,6 +87,7 @@ public class Doador implements Serializable{
 		this.pontos = pontos;
 	}
 
+	@JsonIgnore
 	public String getSenha() {
 		return senha;
 	}

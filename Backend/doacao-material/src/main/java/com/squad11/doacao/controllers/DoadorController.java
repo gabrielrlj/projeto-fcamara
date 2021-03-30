@@ -47,4 +47,8 @@ public class DoadorController{
 		return doadorService.login(doadorDTO.getEmail(), doadorDTO.getSenha());
 	}
 
+	@GetMapping("/{id}")
+	public Doador getDoadorById(@PathVariable Long id) {
+		return doadorService.retornaDoador(id);
+	}
 }
