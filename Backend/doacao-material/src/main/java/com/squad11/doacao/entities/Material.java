@@ -28,7 +28,7 @@ public class Material implements Serializable{
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "dependente_id", nullable = false)
-	@JsonIgnore
+	@JsonBackReference
 	private Dependente dependente;
 
 	public Material() {
