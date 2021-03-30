@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Doacao implements Serializable{
 
@@ -31,6 +33,7 @@ public class Doacao implements Serializable{
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "doador_id", nullable = false)
+	@JsonBackReference
 	private Doador doador;
 
 	private EstadoDoacao estado;

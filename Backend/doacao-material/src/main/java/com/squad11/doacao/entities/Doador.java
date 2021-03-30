@@ -32,7 +32,6 @@ public class Doador implements Serializable{
 	private Long id;
 
 	@OneToMany(mappedBy = "doador", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JsonBackReference
 	private List<Doacao> doacoes = new ArrayList<Doacao>();
 	
 	@NotBlank

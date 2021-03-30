@@ -7,6 +7,7 @@ import Button from '../components/Button';
 import { DashboardParamList, RootStackParamList } from '../types';
 import RegisterDonor from './authScreens/RegisterDonor';
 import SponsorNavigator from './SponsorScreen';
+import DonorNavigator from './DonorScreen';
 
 type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
 type DashboardRouteProp = RouteProp<RootStackParamList, 'Dashboard'>;
@@ -36,16 +37,15 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
 
   return (
     <DashboardStack.Navigator
-      initialRouteName={'SponsorNavigator'} // Expect the user type to set the default dashboard
+      initialRouteName={'DonorNavigator'} // Expect the user type to set the default dashboard
     >
       <DashboardStack.Screen
         name="SponsorNavigator"
         component={SponsorNavigator}
-        
       />
       <DashboardStack.Screen
-        name="DonorDashboard"
-        component={() => null} // Create the DonoDashboard and put thier component, now is returning null
+        name="DonorNavigator"
+        component={DonorNavigator}
       />
     </DashboardStack.Navigator>
   );

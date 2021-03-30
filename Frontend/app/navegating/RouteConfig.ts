@@ -16,7 +16,7 @@ export const AuthDefaultTab = {
     screens: {
       DefaultLogin: 'defaultLogin',
       RegisterDonor: 'registerDonor',
-      SponsorRegisger: 'sponsorRegister',
+      SponsorRegister: 'sponsorRegister',
     },
   },
 };
@@ -27,6 +27,16 @@ export const SponsorNavigator = {
     screens: {
       SponsorDashboard: 'sponsorDashboard',
       RegisterMaterials: 'registerMaterials',
+      StudentRegister: 'studentRegister',
+    }
+  },
+}
+
+export const DonorDashboard = {
+  SponsorStackNavigator: {
+    path: 'donorNavigator',
+    screens: {
+      DonorDashboard: 'donorDashboard',
     }
   },
 }
@@ -39,7 +49,9 @@ export const DashboardStack = {
       SponsorNavigator: {
         screens: SponsorNavigator,
       },
-      DonorDashboard: 'donorDashboard',
+      DonorNavigator: {
+        screens: DonorDashboard,
+      },
     },
   },
 };
@@ -48,9 +60,6 @@ export const DashboardStack = {
 const linkConfig = {
   screens: {
     Home: '',
-    Auth: {
-      screens: AuthTab,
-    },
     AuthDefault: {
       screens: AuthDefaultTab,
     },
