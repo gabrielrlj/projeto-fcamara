@@ -40,7 +40,6 @@ public class Doador implements Serializable{
 	
 	@NotBlank
 	private String senha;
-	
 	private Integer pontos;
 
 	public Doador() {

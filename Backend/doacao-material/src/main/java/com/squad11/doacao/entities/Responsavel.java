@@ -16,6 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -43,11 +44,16 @@ public class Responsavel implements Serializable {
 	private String telefone;
 	
 	@NotBlank
+	@Size(min = 11, max = 11)
+	private String nis;
+	
+	@NotBlank
 	@Email
 	private String email;
 	@NotBlank
 	private String nome;
 	private String senha;
+	
 
 	public Responsavel() {
 
@@ -55,7 +61,7 @@ public class Responsavel implements Serializable {
 
 
 	public Responsavel(Long id, List<Dependente> dependentes, Endereco endereco, String telefone, String email,
-			String nome, String senha) {
+			String nome, String senha, String nis) {
 		super();
 		this.id = id;
 		this.dependentes = dependentes;
@@ -64,6 +70,7 @@ public class Responsavel implements Serializable {
 		this.email = email;
 		this.nome = nome;
 		this.senha = senha;
+		this.nis = nis;
 	}
 
 
@@ -122,5 +129,16 @@ public class Responsavel implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+	public String getNis() {
+		return nis;
+	}
+
+
+	public void setNis(String nis) {
+		this.nis = nis;
+	}
+	
 
 }
