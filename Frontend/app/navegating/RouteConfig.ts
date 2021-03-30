@@ -16,7 +16,7 @@ export const AuthDefaultTab = {
     screens: {
       DefaultLogin: 'defaultLogin',
       RegisterDonor: 'registerDonor',
-      SponsorRegisger: 'sponsorRegister',
+      SponsorRegister: 'sponsorRegister',
     },
   },
 };
@@ -44,6 +44,32 @@ export const DashboardStack = {
   },
 };
 
+//aqui
+
+export const DonorNavigator = {
+  SponsorStackNavigator: {
+    path: 'donorNavigator',
+    screens: {
+      DonorDashboard: 'sponsorDashboard',
+    }
+  },
+}
+
+export const DonorDashboardStack = {
+  Dashboard: {
+    path: 'donorDashboard',
+    screens: {
+      SponsorNavigator: {
+        screens: DonorNavigator,
+      },
+      DonorDashboard: 'donorDashboard',
+    },
+  },
+};
+
+
+//fim
+
 // Root Navigator Controller
 const linkConfig = {
   screens: {
@@ -56,6 +82,9 @@ const linkConfig = {
     },
     Dashboard: {
       screens: DashboardStack,
+    },
+    DonorDashboard: {
+      screens: DonorDashboardStack,
     },
     NotFound: '*',
   }

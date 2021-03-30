@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   AuthDefault: undefined;
   Dashboard: undefined;
+  DonorDashboard:undefined;
 };
 
 export type AuthTabParamList = {
@@ -15,7 +16,16 @@ export type SponsorNavigatorParamList = {
   StudentData: undefined;
 };
 
+// Parametros Navegacao
+export type DonorNavigatorParamList = {
+  DonorDashboard: undefined;
+};
+
+export type DonorDashboardParamList = {
+  DonorNavigator: undefined;
+}
+
 export type DashboardParamList = {
   SponsorNavigator: undefined;
-  DonorDashboard: undefined;
+  DonorNavigator: undefined;
 }

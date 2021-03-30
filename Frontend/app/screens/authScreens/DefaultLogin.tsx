@@ -4,6 +4,7 @@ import { RouteProp, useNavigation } from '@react-navigation/native'
 import { AuthTabParamList, RootStackParamList } from '../../types';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from 'react-native'
 // import IconLogin from '../../assets/images/elo-escolar-1.png'
+import { Checkbox } from 'react-native-paper';
 
 type RootNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
 type AuthNavigationProps = StackNavigationProp<AuthTabParamList, 'DefaultLogin'>;
@@ -28,9 +29,15 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
   }
 
   function handleLoginButtonClick() {
-    // call API login...
-    // if success then
-    navigationHook.navigate('Dashboard');
+    
+    //Verifica se marcou como usuário Doador ou responsavel pelo aluno
+    if (checkedSponsor) {
+      navigationHook.navigate('Dashboard');
+    } else if (checkedDonor) {
+      navigationHook.navigate('DonorDashboard');
+    } else {
+      alert('É preciso selecionar uma das opções: (Sou Doador ou Beneficiado)');
+    }
   }
 
   function handleSponsorRegister() {
@@ -45,6 +52,9 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
   const handleChangePassword = (e: string) => {
     setPassword(e);
   }
+
+  const [checkedDonor, setCheckedDonor] = React.useState(false);
+  const [checkedSponsor, setCheckedSponsor] = React.useState(false);
 
   return (
     <View style={styles.container}>
@@ -64,6 +74,28 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
           handleChangePassword(e);
         }}>
       </TextInput>
+      <View style={styles.checkBoxContainer}>
+        <View style={styles.checkBox}>
+          <Checkbox
+            status={checkedDonor ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setCheckedDonor(!checkedDonor);
+              setCheckedSponsor(false);
+            }}
+          />
+          <Text style={styles.Text}> Sou Doador!</Text>
+        </View>
+        <View style={styles.checkBox}>
+          <Checkbox
+            status={checkedSponsor ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setCheckedSponsor(!checkedSponsor);
+              setCheckedDonor(false);
+            }}
+          />
+          <Text style={styles.Text}> Sou beneficiado!</Text>
+        </View>
+      </View>
 
       <TouchableOpacity onPress={handleLoginButtonClick} style={styles.buttom}>
         <Text style={styles.buttomText}>Entrar</Text>
@@ -87,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 40,
     fontWeight: 'bold',
-    backgroundColor: '#f8f8ff'
+    backgroundColor: '#f8f8ff',
   },
   buttom: {
     marginTop: 30,
@@ -116,4 +148,17 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 0
   },
+  checkBox: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+  },
+  checkBoxContainer: {
+    width: '90%',
+    alignItems: 'flex-start'
+  },
+  Text: {
+    padding: 8,
+    paddingLeft: 3
+  }
 })
