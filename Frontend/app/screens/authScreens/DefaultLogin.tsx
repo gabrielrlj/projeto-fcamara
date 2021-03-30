@@ -1,10 +1,11 @@
 import { StackNavigationProp } from '@react-navigation/stack'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { RouteProp, useNavigation } from '@react-navigation/native'
 import { AuthTabParamList, RootStackParamList } from '../../types';
 import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image, Alert } from 'react-native'
 // import IconLogin from '../../assets/images/elo-escolar-1.png'
 import { Checkbox } from 'react-native-paper';
+import { UserContext } from '../../contexts/UserContexts';
 
 type RootNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
 type AuthNavigationProps = StackNavigationProp<AuthTabParamList, 'DefaultLogin'>;
@@ -17,6 +18,7 @@ interface LoginProps {
 }
 
 export default function DefaultLogin({ navigation, route }: LoginProps) {
+  const { login } = useContext(UserContext);
   const navigationHook = useNavigation<RootNavigationProps>();
 
   // hook - constante criada nome email e setEmail function que define valor de email. Usestate é o estado atual
@@ -31,19 +33,26 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     navigation.navigate('RegisterDonor');
   }
 
-  function handleLoginButtonClick() {
+  async function handleLoginButtonClick() {
     
     //Verifica se marcou como usuário Doador ou responsavel pelo aluno
     if (checkedSponsor) {
-      navigationHook.navigate('Dashboard');
+      const hadSuccess = await login(email, password, 'sponsor');
+      if (hadSuccess) {
+        navigationHook.navigate('Dashboard');
+      }
+
     } else if (checkedDonor) {
-      navigationHook.navigate('DonorDashboard');
+      const hadSuccess = await login(email, password, 'donor');
+      if (hadSuccess) {
+        navigationHook.navigate('Dashboard');
+      }
     } else {
       Alert.alert(
         "Atenção",
         "Por favor marque uma das opções de login\nSou Doador ou Beneficiado",
       );
-      alert('É preciso selecionar uma das opções: ');
+      // alert('É preciso selecionar uma das opções: ');
     }
   }
 

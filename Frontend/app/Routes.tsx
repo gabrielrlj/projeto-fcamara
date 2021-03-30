@@ -13,9 +13,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export default function Routes() {
   return (
-    <UserProvider>
-
-      <NavigationContainer linking={linking} >
+    
+    <NavigationContainer linking={linking} >
+        <UserProvider>
         <Stack.Navigator initialRouteName="AuthDefault">
           <Stack.Screen
             name="AuthDefault"
@@ -27,8 +27,8 @@ export default function Routes() {
             options={{ header: () => null }}
           />
         </Stack.Navigator>
+    </UserProvider>
       </NavigationContainer>
       
-    </UserProvider>
   );
 }
