@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -51,6 +53,18 @@ public class Dependente implements Serializable{
 	private String escola;
 	private Integer idade;
 	private String serie;
+	
+	@NotNull
+	@Size(min = 11, max = 11)
+	private String nis;
+
+	public String getNis() {
+		return nis;
+	}
+
+	public void setNis(String nis) {
+		this.nis = nis;
+	}
 
 	public Dependente(Long id, Responsavel responsavel, Doacao doacao, String nome, String escola, Integer idade,
 			String serie) {
