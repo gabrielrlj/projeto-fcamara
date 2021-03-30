@@ -2,7 +2,7 @@ import { StackNavigationProp } from '@react-navigation/stack'
 import React, { useState, useEffect } from 'react'
 import { RouteProp, useNavigation } from '@react-navigation/native'
 import { AuthTabParamList, RootStackParamList } from '../../types';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image, Alert } from 'react-native'
 // import IconLogin from '../../assets/images/elo-escolar-1.png'
 import { Checkbox } from 'react-native-paper';
 
@@ -24,6 +24,9 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [checkedDonor, setCheckedDonor] = useState(false);
+  const [checkedSponsor, setCheckedSponsor] = useState(false);
+
   function registerDonorScreen() {
     navigation.navigate('RegisterDonor');
   }
@@ -36,7 +39,11 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     } else if (checkedDonor) {
       navigationHook.navigate('DonorDashboard');
     } else {
-      alert('É preciso selecionar uma das opções: (Sou Doador ou Beneficiado)');
+      Alert.alert(
+        "Atenção",
+        "Por favor marque uma das opções de login\nSou Doador ou Beneficiado",
+      );
+      alert('É preciso selecionar uma das opções: ');
     }
   }
 
@@ -52,9 +59,6 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
   const handleChangePassword = (e: string) => {
     setPassword(e);
   }
-
-  const [checkedDonor, setCheckedDonor] = React.useState(false);
-  const [checkedSponsor, setCheckedSponsor] = React.useState(false);
 
   return (
     <View style={styles.container}>
