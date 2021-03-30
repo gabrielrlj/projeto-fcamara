@@ -51,6 +51,7 @@ public class Dependente implements Serializable{
 	private String escola;
 	private Integer idade;
 	private String serie;
+	private String nis;
 
 	public Dependente(Long id, Responsavel responsavel, Doacao doacao, String nome, String escola, Integer idade,
 			String serie) {
