@@ -23,14 +23,6 @@ export default function Routes() {
           component={DashboardNavigator}
           options={{ header: () => null}}
         />
-
-        {/* aqui */}
-        <Stack.Screen
-          name="DonorDashboard"
-          component={DonorNavigator}
-          options={{ header: () => null}}
-        />
-        {/* //fim */}
       </Stack.Navigator>
     </NavigationContainer>
   );

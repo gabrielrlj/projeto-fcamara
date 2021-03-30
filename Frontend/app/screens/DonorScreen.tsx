@@ -2,9 +2,10 @@ import { RouteProp, useNavigation } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Button from '../components/Button';
 import { DonorDashboardParamList, RootStackParamList, DonorNavigatorParamList } from '../types';
 
-//type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
+type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
 type DonorNavigationProps = StackNavigationProp<DonorNavigatorParamList, 'DonorDashboard'>;
 type DonordRouteProp = RouteProp<DonorDashboardParamList, 'DonorNavigator'>;
 
@@ -30,11 +31,17 @@ export default function DonorNavigator() {
 
 
 function DonorDashboard({ navigation }: DonorProps ) {
-    //const navigationHook = useNavigation<DashboardNavigationProps>();
+    const navigationHook = useNavigation<DashboardNavigationProps>();
+
+    function handleLogOutButton() {
+        // Logout logic then
+        navigationHook.replace('AuthDefault');
+    }
 
     return (
       <View>
         <Text>Página inicial (Doador)</Text>
+        <Button text="Sair" onPress={handleLogOutButton} />
       </View>
     );
   }

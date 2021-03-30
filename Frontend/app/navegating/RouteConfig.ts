@@ -31,6 +31,15 @@ export const SponsorNavigator = {
   },
 }
 
+export const DonorDashboard = {
+  SponsorStackNavigator: {
+    path: 'donorNavigator',
+    screens: {
+      DonorDashboard: 'donorDashboard',
+    }
+  },
+}
+
 // Main Dashboard Navigator Controller
 export const DashboardStack = {
   Dashboard: {
@@ -39,52 +48,22 @@ export const DashboardStack = {
       SponsorNavigator: {
         screens: SponsorNavigator,
       },
-      DonorDashboard: 'donorDashboard',
-    },
-  },
-};
-
-//aqui
-
-export const DonorNavigator = {
-  SponsorStackNavigator: {
-    path: 'donorNavigator',
-    screens: {
-      DonorDashboard: 'sponsorDashboard',
-    }
-  },
-}
-
-export const DonorDashboardStack = {
-  Dashboard: {
-    path: 'donorDashboard',
-    screens: {
-      SponsorNavigator: {
-        screens: DonorNavigator,
+      DonorNavigator: {
+        screens: DonorDashboard,
       },
-      DonorDashboard: 'donorDashboard',
     },
   },
 };
-
-
-//fim
 
 // Root Navigator Controller
 const linkConfig = {
   screens: {
     Home: '',
-    Auth: {
-      screens: AuthTab,
-    },
     AuthDefault: {
       screens: AuthDefaultTab,
     },
     Dashboard: {
       screens: DashboardStack,
-    },
-    DonorDashboard: {
-      screens: DonorDashboardStack,
     },
     NotFound: '*',
   }
