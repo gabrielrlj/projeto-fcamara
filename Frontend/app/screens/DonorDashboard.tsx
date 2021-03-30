@@ -1,28 +1,24 @@
 import { RouteProp } from '@react-navigation/core';
-import { Link } from '@react-navigation/native';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, View } from "react-native";
-import Button from '../components/Button';
-import { DashboardParamList, RootStackParamList } from '../types';
-import RegisterDonor from './authScreens/RegisterDonor';
-import SponsorNavigator from './SponsorScreen';
+import { RootStackParamList, DonorDashboardParamList} from '../types';
 import DonorNavigator from './DonorScreen';
 
-type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
-type DashboardRouteProp = RouteProp<RootStackParamList, 'Dashboard'>;
+type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'DonorDashboard'>;
+type DashboardRouteProp = RouteProp<RootStackParamList, 'DonorDashboard'>;
 
 interface DashboardProps {
   navigation: DashboardNavigationProps;
   route: DashboardRouteProp;
 }
 
-const DashboardStack = createStackNavigator<DashboardParamList>();
+const DashboardStack = createStackNavigator<DonorDashboardParamList>();
 
 export default function DashboardNavigator({ navigation, route }: DashboardProps) {
   // const currentScreen = route.params?.currentScreen;
 
-  // When entry into the page clean the navigation history
+  // Limpa histórico navegação
   useEffect(() => {
     navigation.reset({
       index: 0,
@@ -30,19 +26,13 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
     });
   }, []);
 
-  // const { isLogged, otherParams } = routes.params;
-  // if (!isLogged) {
-  // return null; // Return something or just redirect to 'Home maybe Login'
-  // }
-
   return (
     <DashboardStack.Navigator
-      initialRouteName={'SponsorNavigator'} // Expect the user type to set the default dashboard
+      initialRouteName={'DonorNavigator'} // Expect the user type to set the default dashboard
     >
       <DashboardStack.Screen
-        name="SponsorNavigator"
-        component={SponsorNavigator}
-        
+        name="DonorNavigator"
+        component={DonorNavigator} // Create the DonoDashboard and put thier component, now is returning null
       />
     </DashboardStack.Navigator>
   );
