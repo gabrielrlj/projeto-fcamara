@@ -27,6 +27,7 @@ export const SponsorNavigator = {
     screens: {
       SponsorDashboard: 'sponsorDashboard',
       RegisterMaterials: 'registerMaterials',
+      StudentRegister: 'studentRegister',
     }
   },
 }
