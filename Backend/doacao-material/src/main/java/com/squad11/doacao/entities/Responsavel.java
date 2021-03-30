@@ -52,6 +52,7 @@ public class Responsavel implements Serializable {
 	private String email;
 	@NotBlank
 	private String nome;
+	@JsonIgnore
 	private String senha;
 	
 
