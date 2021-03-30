@@ -27,6 +27,16 @@ export const SponsorNavigator = {
     screens: {
       SponsorDashboard: 'sponsorDashboard',
       RegisterMaterials: 'registerMaterials',
+      StudentRegister: 'studentRegister',
+    }
+  },
+}
+
+export const DonorDashboard = {
+  SponsorStackNavigator: {
+    path: 'donorNavigator',
+    screens: {
+      DonorDashboard: 'donorDashboard',
     }
   },
 }
@@ -39,52 +49,22 @@ export const DashboardStack = {
       SponsorNavigator: {
         screens: SponsorNavigator,
       },
-      DonorDashboard: 'donorDashboard',
-    },
-  },
-};
-
-//aqui
-
-export const DonorNavigator = {
-  SponsorStackNavigator: {
-    path: 'donorNavigator',
-    screens: {
-      DonorDashboard: 'sponsorDashboard',
-    }
-  },
-}
-
-export const DonorDashboardStack = {
-  Dashboard: {
-    path: 'donorDashboard',
-    screens: {
-      SponsorNavigator: {
-        screens: DonorNavigator,
+      DonorNavigator: {
+        screens: DonorDashboard,
       },
-      DonorDashboard: 'donorDashboard',
     },
   },
 };
-
-
-//fim
 
 // Root Navigator Controller
 const linkConfig = {
   screens: {
     Home: '',
-    Auth: {
-      screens: AuthTab,
-    },
     AuthDefault: {
       screens: AuthDefaultTab,
     },
     Dashboard: {
       screens: DashboardStack,
-    },
-    DonorDashboard: {
-      screens: DonorDashboardStack,
     },
     NotFound: '*',
   }

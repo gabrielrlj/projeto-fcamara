@@ -14,6 +14,7 @@ export type SponsorNavigatorParamList = {
   SponsorDashboard: undefined;
   RegisterMaterials: undefined;
   StudentData: undefined;
+  StudentRegister: undefined;
 };
 
 // Parametros Navegacao

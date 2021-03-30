@@ -37,12 +37,15 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
 
   return (
     <DashboardStack.Navigator
-      initialRouteName={'SponsorNavigator'} // Expect the user type to set the default dashboard
+      initialRouteName={'DonorNavigator'} // Expect the user type to set the default dashboard
     >
       <DashboardStack.Screen
         name="SponsorNavigator"
         component={SponsorNavigator}
-        
+      />
+      <DashboardStack.Screen
+        name="DonorNavigator"
+        component={DonorNavigator}
       />
     </DashboardStack.Navigator>
   );
