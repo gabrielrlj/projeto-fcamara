@@ -1,3 +1,5 @@
+export type UserTypes = "sponsor" | "donor";
+
 export type RootStackParamList = {
   AuthDefault: undefined;
   Dashboard: undefined;
