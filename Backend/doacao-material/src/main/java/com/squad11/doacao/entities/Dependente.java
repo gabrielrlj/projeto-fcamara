@@ -33,7 +33,7 @@ public class Dependente implements Serializable{
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "responsavel_id", nullable = false)
-	@JsonBackReference
+	@JsonBackReference(value="responsavel")
 	private Responsavel responsavel;
 
 	@OneToMany(mappedBy = "dependente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -43,7 +43,7 @@ public class Dependente implements Serializable{
 	@JoinTable(name = "dependente_doacao", joinColumns = {
 			@JoinColumn(name = "dependente_id", referencedColumnName = "id") }, inverseJoinColumns = {
 					@JoinColumn(name = "doacao_id", referencedColumnName = "id") })
-	@JsonBackReference
+	@JsonBackReference(value="doacao")
 	private Doacao doacao;
 	@NotBlank
 	private String nome;
