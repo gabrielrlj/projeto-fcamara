@@ -16,16 +16,17 @@ export type SponsorNavigatorParamList = {
   SponsorDashboard: undefined;
   RegisterMaterials: undefined;
   StudentData: undefined;
-  StudentRegister: undefined;
 };
 
 // Parametros Navegacao
 export type DonorNavigatorParamList = {
   DonorDashboard: undefined;
+  ConfirmationDonation: undefined;
 };
 
 export type DonorDashboardParamList = {
   DonorNavigator: undefined;
+  ConfirmationDonation:undefined;
 }
 
 export type DashboardParamList = {

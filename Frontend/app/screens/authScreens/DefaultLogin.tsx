@@ -45,7 +45,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     } else if (checkedDonor) {
       const hadSuccess = await login(email, password, 'donor');
       if (hadSuccess) {
-        navigationHook.navigate('Dashboard');
+        navigationHook.navigate('DonorDashboard');
       }
     } else {
       Alert.alert(

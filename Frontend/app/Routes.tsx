@@ -4,7 +4,6 @@ import React from 'react';
 import AuthStackTab from './components/AuthStack';
 import { UserProvider } from './contexts/UserContexts';
 import { linking } from './navegating/RouteConfig';
-import DefaultLogin from './screens/authScreens/DefaultLogin';
 import DashboardNavigator from './screens/Dashboard';
 import DonorNavigator from './screens/DonorScreen';
 import { RootStackParamList } from './types';
@@ -26,9 +25,15 @@ export default function Routes() {
             component={DashboardNavigator}
             options={{ header: () => null }}
           />
+          <Stack.Screen
+            name="DonorDashboard"
+            component={DonorNavigator}
+            options={{ header: () => null}}
+          />
         </Stack.Navigator>
     </UserProvider>
       </NavigationContainer>
       
+    
   );
 }

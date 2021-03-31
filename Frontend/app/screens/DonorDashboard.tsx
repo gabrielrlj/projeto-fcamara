@@ -8,14 +8,14 @@ import DonorNavigator from './DonorScreen';
 type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'DonorDashboard'>;
 type DashboardRouteProp = RouteProp<RootStackParamList, 'DonorDashboard'>;
 
-interface DashboardProps {
+interface DonorDashboardProps {
   navigation: DashboardNavigationProps;
   route: DashboardRouteProp;
 }
 
 const DashboardStack = createStackNavigator<DonorDashboardParamList>();
 
-export default function DashboardNavigator({ navigation, route }: DashboardProps) {
+export default function DashboardNavigator({ navigation, route }: DonorDashboardProps) {
   // const currentScreen = route.params?.currentScreen;
 
   // Limpa histórico navegação
