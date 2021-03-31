@@ -36,7 +36,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     } else if (checkedDonor) {
       navigationHook.navigate('DonorDashboard');
     } else {
-      alert('É preciso selecionar uma das opções: (Sou Doador ou Beneficiado)');
+      alert('É preciso selecionar uma das opções:(Sou Doador ou Beneficiado)');
     }
   }
 
