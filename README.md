@@ -1,5 +1,5 @@
 <h1 align="center"> 
-	🚧  Projeto FCamara 🚀 Em construção...  🚧
+	🚧  Elo Escolar 🔗 Em construção...  🚧
 </h1>
 
 Projeto do Programa de Formação da FCamara
