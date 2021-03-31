@@ -18,6 +18,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Doador implements Serializable{
@@ -39,6 +40,7 @@ public class Doador implements Serializable{
 	private String email;
 	
 	@NotBlank
+	@JsonIgnore
 	private String senha;
 	private Integer pontos;
 
