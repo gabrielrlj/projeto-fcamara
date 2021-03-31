@@ -21,7 +21,12 @@ export default function Routes() {
         <Stack.Screen
           name="Dashboard"
           component={DashboardNavigator}
-          options={{ header: () => null}}
+          options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name="DonorDashboard"
+          component={DonorNavigator}
+          options={{ header: () => null }}
         />
       </Stack.Navigator>
     </NavigationContainer>

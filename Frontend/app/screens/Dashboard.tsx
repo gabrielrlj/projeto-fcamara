@@ -43,10 +43,10 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
         name="SponsorNavigator"
         component={SponsorNavigator}
       />
-      <DashboardStack.Screen
+      {/* <DashboardStack.Screen
         name="DonorNavigator"
         component={DonorNavigator}
-      />
+      /> */}
     </DashboardStack.Navigator>
   );
 }
