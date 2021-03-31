@@ -4,9 +4,7 @@ import React from 'react';
 import AuthStackTab from './components/AuthStack';
 import { UserProvider } from './contexts/UserContexts';
 import { linking } from './navegating/RouteConfig';
-import DefaultLogin from './screens/authScreens/DefaultLogin';
 import DashboardNavigator from './screens/Dashboard';
-import DonorNavigator from './screens/DonorScreen';
 import { RootStackParamList } from './types';
 
 const Stack = createStackNavigator<RootStackParamList>();

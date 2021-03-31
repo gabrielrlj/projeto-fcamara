@@ -1,12 +1,10 @@
 import { RouteProp } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import React, { useContext, useEffect } from 'react';
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import Button from '../components/Button';
 import { DashboardParamList, RootStackParamList } from '../types';
-import RegisterDonor from './authScreens/RegisterDonor';
 import SponsorNavigator from './SponsorScreen';
-import DonorNavigator from './DonorScreen';
 import { UserContext } from '../contexts/UserContexts';
 
 type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
