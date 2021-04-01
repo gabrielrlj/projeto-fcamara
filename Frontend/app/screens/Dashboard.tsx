@@ -39,11 +39,7 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
 
   return (
     <DashboardStack.Navigator
-<<<<<<< HEAD
-      initialRouteName={'SponsorNavigator'}
-=======
       initialRouteName={'SponsorNavigator'} // Expect the user type to set the default dashboard
->>>>>>> 043ff0e0de881c95eb8a7b126b89c8c7721bc670
     >
       <DashboardStack.Screen
         name="SponsorNavigator"
