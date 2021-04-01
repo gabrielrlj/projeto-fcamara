@@ -23,7 +23,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Elo Escolar ").description("API do Projeto do projeto Elo Escolar")
+		return new ApiInfoBuilder().title("Elo Escolar ").description("API do Projeto Elo Escolar")
 				.version("1.0").contact(contact()).build();
 	}
 
