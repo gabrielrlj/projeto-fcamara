@@ -1,4 +1,4 @@
-package config;
+package com.squad11.doacao.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,18 +16,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 	@Bean
 	public Docket docket() {
-		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.squad11.doacao.controllers"))
+		return new Docket(DocumentationType.SWAGGER_2)
+
+				.select().apis(RequestHandlerSelectors.basePackage("com.squad11.doacao.controllers"))
 				.paths(PathSelectors.any()).build().apiInfo(apiInfo());
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("Elo Escolar").description("API do Projeto Elo Escolar").version("1.0")
-				.contact(contact()).build();
+		return new ApiInfoBuilder().title("Elo Escolar ").description("API do Projeto do projeto Elo Escolar")
+				.version("1.0").contact(contact()).build();
 	}
 
 	private Contact contact() {
-		return new Contact("Fernanda Ferraz, Gabriel Jardim, Jésica Mariane, Lucas Silva",
-				"https://github.com/gabrielrlj/projeto-fcamara", "Projeto Elo Escolar para a Fcamara");
+		return new Contact("Fernanda Ferraz, Gabriel Jardim, Jessica Mariane, Lucas Silva",
+				"https://github.com/gabrielrlj/projeto-fcamara", "Projeto Elo Escolar para Fcamara");
 	}
 }
