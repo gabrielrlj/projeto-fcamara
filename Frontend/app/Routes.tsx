@@ -5,15 +5,16 @@ import AuthStackTab from './components/AuthStack';
 import { UserProvider } from './contexts/UserContexts';
 import { linking } from './navegating/RouteConfig';
 import DashboardNavigator from './screens/Dashboard';
+import DonorNavigator from './screens/DonorScreen';
 import { RootStackParamList } from './types';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function Routes() {
   return (
-    
+
     <NavigationContainer linking={linking} >
-        <UserProvider>
+      <UserProvider>
         <Stack.Navigator initialRouteName="AuthDefault">
           <Stack.Screen
             name="AuthDefault"
@@ -24,9 +25,14 @@ export default function Routes() {
             component={DashboardNavigator}
             options={{ header: () => null }}
           />
+          <Stack.Screen
+            name="DonorDashboard"
+            component={DonorNavigator}
+            options={{ header: () => null }}
+          />
         </Stack.Navigator>
-    </UserProvider>
-      </NavigationContainer>
-      
+      </UserProvider>
+    </NavigationContainer>
+
   );
 }

@@ -1,4 +1,4 @@
-export type UserTypes = "sponsor" | "donor";
+export type UserTypes = "sponsor" | "donor" | null;
 
 export type RootStackParamList = {
   AuthDefault: undefined;
@@ -30,5 +30,4 @@ export type DonorDashboardParamList = {
 
 export type DashboardParamList = {
   SponsorNavigator: undefined;
-  DonorNavigator: undefined;
 }
