@@ -1,14 +1,24 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/core';
 import { View, Text, StyleSheet } from "react-native";
+import { DonorDashboardParamList } from '../types';
 import Button from "./Button";
+import {StackNavigationProp } from '@react-navigation/stack';
 
 interface StudentProps {
   id: number;
   name: string;
   items: Array<String>
 }
+type DonorNavigationProps = StackNavigationProp<DonorDashboardParamList, 'ConfirmationDonation'>;
 
 export default function Student() {
+  const navigationHook = useNavigation<DonorNavigationProps>();
+  
+  function goDonation(){
+    navigationHook.navigate('ConfirmationDonation');
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.subContainer}>
@@ -20,7 +30,7 @@ export default function Student() {
         </View>
       </View>
 
-      <Button text="Doar" />
+      <Button text="Doar" onPress={goDonation}/>
     </View>
   );
 }
