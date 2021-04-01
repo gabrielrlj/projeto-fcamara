@@ -96,7 +96,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
               setCheckedSponsor(false);
             }}
           />
-          <Text style={styles.Text}> Sou Doador!</Text>
+          <Text style={styles.text}> Sou Doador!</Text>
         </View>
         <View style={styles.checkBox}>
           <Checkbox
@@ -106,7 +106,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
               setCheckedDonor(false);
             }}
           />
-          <Text style={styles.Text}> Sou beneficiado!</Text>
+          <Text style={styles.text}> Sou beneficiado!</Text>
         </View>
       </View>
 
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
     width: '90%',
     alignItems: 'flex-start'
   },
-  Text: {
+  text: {
     padding: 8,
     paddingLeft: 3
   }
