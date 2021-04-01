@@ -39,7 +39,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     if (checkedSponsor) {
       const hadSuccess = await login(email, password, 'sponsor');
       if (hadSuccess) {
-        navigationHook.navigate('Dashboard');
+        // navigationHook.navigate('Dashboard');
       }
 
     } else if (checkedDonor) {

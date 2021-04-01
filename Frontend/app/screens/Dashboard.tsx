@@ -1,12 +1,10 @@
 import { RouteProp } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import React, { useContext, useEffect } from 'react';
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { Alert,  } from "react-native";
 import Button from '../components/Button';
 import { DashboardParamList, RootStackParamList } from '../types';
-import RegisterDonor from './authScreens/RegisterDonor';
 import SponsorNavigator from './SponsorScreen';
-import DonorNavigator from './DonorScreen';
 import { UserContext } from '../contexts/UserContexts';
 
 type DashboardNavigationProps = StackNavigationProp<RootStackParamList, 'Dashboard'>;
@@ -20,8 +18,7 @@ interface DashboardProps {
 const DashboardStack = createStackNavigator<DashboardParamList>();
 
 export default function DashboardNavigator({ navigation, route }: DashboardProps) {
-  const { isLogged, userType } = useContext(UserContext);
-  // const currentScreen = route.params?.currentScreen;
+  const { isLogged } = useContext(UserContext);
 
   // When entry into the page clean the navigation history
   useEffect(() => {
@@ -42,7 +39,11 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
 
   return (
     <DashboardStack.Navigator
+<<<<<<< HEAD
+      initialRouteName={'SponsorNavigator'}
+=======
       initialRouteName={'SponsorNavigator'} // Expect the user type to set the default dashboard
+>>>>>>> 043ff0e0de881c95eb8a7b126b89c8c7721bc670
     >
       <DashboardStack.Screen
         name="SponsorNavigator"
@@ -51,16 +52,3 @@ export default function DashboardNavigator({ navigation, route }: DashboardProps
     </DashboardStack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#000',
-  }
-});

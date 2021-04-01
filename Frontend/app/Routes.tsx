@@ -12,9 +12,9 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 export default function Routes() {
   return (
-    
+
     <NavigationContainer linking={linking} >
-        <UserProvider>
+      <UserProvider>
         <Stack.Navigator initialRouteName="AuthDefault">
           <Stack.Screen
             name="AuthDefault"
@@ -28,12 +28,11 @@ export default function Routes() {
           <Stack.Screen
             name="DonorDashboard"
             component={DonorNavigator}
-            options={{ header: () => null}}
+            options={{ header: () => null }}
           />
         </Stack.Navigator>
-    </UserProvider>
-      </NavigationContainer>
-      
-    
+      </UserProvider>
+    </NavigationContainer>
+
   );
 }
