@@ -19,6 +19,7 @@ export default function Routes() {
           <Stack.Screen
             name="AuthDefault"
             component={AuthStackTab}
+            options={{ header: () => null }}
           />
           <Stack.Screen
             name="Dashboard"

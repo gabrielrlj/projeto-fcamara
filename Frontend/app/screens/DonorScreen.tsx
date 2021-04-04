@@ -8,6 +8,10 @@ import Student from '../components/Student';
 import { UserContext } from '../contexts/UserContexts';
 import { DonorDashboardParamList, RootStackParamList, DonorNavigatorParamList } from '../types';
 import ConfirmationDonation from './ConfirmationDonation';
+import Header from '../components/Header';
+import HeaderBelow from '../components/HeaderBelow';
+import SearchStudents from "../components/SearchStudents";
+
 
 type LoginNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
 type DonorNavigationProps = StackNavigationProp<DonorDashboardParamList, 'DonorNavigator'>;
@@ -38,6 +42,7 @@ export default function DonorNavigator() {
 }
 
 function DonorDashboard({ navigation }: DonorProps ) {
+    const {userId} = useContext(UserContext)
     const { username } = useContext(UserContext);
     const navigationHook = useNavigation<LoginNavigationProps>();
 
@@ -62,17 +67,19 @@ function DonorDashboard({ navigation }: DonorProps ) {
 
     return (
       <View style={{flex: 1, overflow: 'visible'}}>
-        <Text>Página inicial {username}</Text>
+        {/* <Header/> */}
+        <HeaderBelow/>
+
+        {/* <Text>{username}</Text> */}
         <ScrollView style={styles.studentsContainer}>
             {/* mapear a variavel do data aqui criando um componente Student pra cada */}
             <Student />
+            {/* <Student />
             <Student />
             <Student />
             <Student />
-            <Student />
-            <Student />
+            <Student /> */}
         </ScrollView>
-        <Button text="Sair" onPress={handleLogOutButton} />
       </View>
     );
   }

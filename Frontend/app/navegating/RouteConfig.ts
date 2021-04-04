@@ -50,7 +50,8 @@ export const DonorNavigator = {
     path: 'donorNavigator',
     screens: {
       DonorDashboard: 'donorDashboard',
-      ConfirmationDonation: 'confirmationDonation'
+      ConfirmationDonation: 'confirmationDonation',
+      DrawerUserData: 'drawerUserData'
     }
   },
 }

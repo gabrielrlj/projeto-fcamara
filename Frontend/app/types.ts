@@ -22,11 +22,13 @@ export type SponsorNavigatorParamList = {
 export type DonorNavigatorParamList = {
   DonorDashboard: undefined;
   ConfirmationDonation: undefined;
+  DrawerUserData: undefined;
 };
 
 export type DonorDashboardParamList = {
   DonorNavigator: undefined;
   ConfirmationDonation:undefined;
+  DrawerUserData: undefined;
 }
 
 export type DashboardParamList = {
