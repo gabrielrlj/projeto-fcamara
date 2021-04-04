@@ -6,7 +6,7 @@ interface UserContextProps {
   isLogged: boolean;
   username: string;
   userId: number;
-  login: (email: string, password: string, loginType: UserTypes) => Promise<boolean>;
+  login: (id: any, email: string, password: string, loginType: UserTypes) => Promise<boolean>;
   logout: () => Promise<void>;
 }
 
@@ -25,23 +25,28 @@ export function UserProvider({ children }: UserProviderProps) {
   const [id, setId] = useState(0);
   const [isLogged, setIsLogged] = useState(false);
   const [username, setUsername] = useState("");
+  const[userEmail,setUserEmail] = useState("");
 
-  async function login(email: string, password: string, loginType: UserTypes) {
+  async function login(id: any, email: string, password: string, loginType: UserTypes) {
     const require = {
       email,
       "senha": password,
     };
 
-    // const { status, data }: LoginCallback = await api.post(`/${loginType === 'sponsor' ? 'responsaveis' : 'doadores'}/login`, require);
+    const { status, data }: LoginCallback = await api.post(`/${loginType === 'sponsor' ? 'responsaveis' : 'doadores'}/login`, require);
 
-    // if (status !== 200 && !data) {
-    //   return false;
-    // }
+    if (status !== 200 && !data) {
+      return false;
+    }
 
-    // JSON.stringify(data);
+    if(data.email == ""){
+      return false;
+    }
+
+    JSON.stringify(data);
     
-    setId(/*data.id ||*/ 1);
-    setUsername(/*data.nome ||*/ "Teste");
+    setId(data.id);
+    setUsername(data.nome);
     setIsLogged(true);
 
     return true;

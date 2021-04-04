@@ -1,7 +1,7 @@
 import { RouteProp } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { RootStackParamList, DonorDashboardParamList} from '../types';
 import DonorNavigator from './DonorScreen';
 

@@ -1,7 +1,6 @@
 import { RouteProp, useNavigation } from '@react-navigation/core';
-import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
+import {StackNavigationProp } from '@react-navigation/stack';
 import React, { useContext } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { DonorDashboardParamList, RootStackParamList, DonorNavigatorParamList } from '../types';
 import { UserContext } from '../contexts/UserContexts';
 import DonationItems from '../components/DonationItems';
