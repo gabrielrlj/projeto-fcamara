@@ -1,6 +1,6 @@
 import { RouteProp, useNavigation } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Button from '../components/Button';
@@ -53,6 +53,17 @@ function DonorDashboard({ navigation }: DonorProps ) {
     function handleConfirmationDonation() {
         navigation.navigate('ConfirmationDonation');
     }
+    
+    useEffect(() => {
+        api.get('/doadores/depenpendes')
+            .then(({data}) => {
+                console.log(data);
+                // quardar esse data numa variável
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    }, []);
 
     return (
       <View style={{flex: 1, overflow: 'visible'}}>
@@ -61,6 +72,7 @@ function DonorDashboard({ navigation }: DonorProps ) {
 
         {/* <Text>{username}</Text> */}
         <ScrollView style={styles.studentsContainer}>
+            {/* mapear a variavel do data aqui criando um componente Student pra cada */}
             <Student />
             {/* <Student />
             <Student />
