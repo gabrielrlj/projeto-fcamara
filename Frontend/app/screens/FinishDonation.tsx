@@ -1,9 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
+import {DonorNavigatorParamList} from '../types';
+import {StackNavigationProp } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native'
 //import CustomInput from '../../components/CustomInput';
 
+type DonationNavigationProps = StackNavigationProp<DonorNavigatorParamList, 'DonorDashboard'>;
+
 export default function ConfirmAddres() {
+
+  const navigationHook = useNavigation<DonationNavigationProps>();
+
+  function goDonorScreen(){
+    navigationHook.navigate("DonorDashboard");
+  }
 
   return (
     <View style={styles.container} >
@@ -11,7 +22,7 @@ export default function ConfirmAddres() {
 
       <Button text="Baixar Boleto" onPress={() => {}} />
 
-      <Button text="Confirmar Doação" onPress={() => {}} />
+      <Button text="Confirmar Doação" onPress={goDonorScreen} />
     </View>
   );
 }

@@ -4,14 +4,12 @@ import Button from '../components/Button';
 import {DonorNavigatorParamList} from '../types';
 import {StackNavigationProp } from '@react-navigation/stack';
 //import { RouteProp } from '@react-navigation/core';
-import { RouteProp, useNavigation } from '@react-navigation/native'
+import {useNavigation } from '@react-navigation/native'
 
 //import CustomInput from '../../components/CustomInput';
 
 
 type DonationNavigationProps = StackNavigationProp<DonorNavigatorParamList, 'DonorDashboard'>;
-//type DonationRouteProp = RouteProp<DonorNavigatorParamList, 'DonorDashboard'>;
-
 
 export default function ConfirmAddres() {
 

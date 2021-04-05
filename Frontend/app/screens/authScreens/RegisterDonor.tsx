@@ -40,7 +40,7 @@ export default function RegisterDonor({ navigation, route }: RegisterDonorProps)
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>SEJA UM DOADOR</Text>
+      <Text style={styles.text}>Seja um doador</Text>
       <TextInput placeholder='E-mail' style={styles.input}
         autoFocus={false} keyboardType='email-address'
         value={email}
