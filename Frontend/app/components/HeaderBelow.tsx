@@ -18,7 +18,7 @@ export default function HeaderBelow() {
                 size={38}
                 color='#FFF'
                 />
-                <Text style={styles.title}>LISTA DE ALUNOS</Text>
+                <Text style={styles.title}>Lista de Alunos</Text>
             </View>    
             <View>
                 <SearchStudents/>    
