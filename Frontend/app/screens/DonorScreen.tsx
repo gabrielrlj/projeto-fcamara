@@ -13,6 +13,7 @@ import FinishDonation from './FinishDonation';
 import Header from '../components/Header';
 import HeaderBelow from '../components/HeaderBelow';
 import SearchStudents from "../components/SearchStudents";
+import DonationFinalized from './DonationFinalized';
 
 
 type LoginNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
@@ -46,6 +47,10 @@ export default function DonorNavigator() {
              <DonorStack.Screen
                 name="FinishDonation"
                 component={FinishDonation}
+            />
+            <DonorStack.Screen
+                name="DonationFinalized"
+                component={DonationFinalized}
             />
         </DonorStack.Navigator>
     );

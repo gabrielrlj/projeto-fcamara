@@ -53,7 +53,8 @@ export const DonorNavigator = {
       ConfirmationDonation: 'confirmationDonation',
       ConfirmAddress: 'confirmAddres',
       FinishDonation: 'finishDonation',
-      DrawerUserData: 'drawerUserData'
+      DrawerUserData: 'drawerUserData',
+      DonationFinalized: 'donationFinalized'
     }
   },
 }

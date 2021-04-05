@@ -25,6 +25,7 @@ export type DonorNavigatorParamList = {
   ConfirmAddres:undefined;
   FinishDonation:undefined;
   DrawerUserData: undefined;
+  DonationFinalized:undefined;
 };
 
 export type DonorDashboardParamList = {
@@ -33,6 +34,7 @@ export type DonorDashboardParamList = {
   ConfirmAddres:undefined;
   FinishDonation:undefined;
   DrawerUserData: undefined;
+  DonationFinalized:undefined;
 }
 
 export type DashboardParamList = {
