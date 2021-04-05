@@ -53,7 +53,7 @@ export default function Student() {
 
 
                           <TouchableOpacity onPress={goDonation} style={styles.buttom}>
-                            <Text style={styles.buttomText}>DOAR</Text>
+                            <Text style={styles.buttomText}>Doar</Text>
                           </TouchableOpacity>
 
                       </View>

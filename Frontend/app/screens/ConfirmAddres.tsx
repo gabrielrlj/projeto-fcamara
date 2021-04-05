@@ -1,20 +1,36 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
-import CustomInput from '../../components/CustomInput';
+import {DonorNavigatorParamList} from '../types';
+import {StackNavigationProp } from '@react-navigation/stack';
+//import { RouteProp } from '@react-navigation/core';
+import { RouteProp, useNavigation } from '@react-navigation/native'
+
+//import CustomInput from '../../components/CustomInput';
+
+
+type DonationNavigationProps = StackNavigationProp<DonorNavigatorParamList, 'DonorDashboard'>;
+//type DonationRouteProp = RouteProp<DonorNavigatorParamList, 'DonorDashboard'>;
+
 
 export default function ConfirmAddres() {
 
+
+  const navigationHook = useNavigation<DonationNavigationProps>();
+  function goFinishDonation(){
+      navigationHook.navigate('FinishDonation');
+  }
+
   return (
     <View style={styles.container} >
-      <Text style={styles.text} >Uma doação será entregue via transportadora</Text>
-<Text style={styles.text} >Informe o endereço onde pegaremos sua encomenda</Text>
-      <CustomInput placeholder="CEP" />
+      <Text style={styles.text} >Uma doaï¿½ï¿½o serï¿½ entregue via transportadora</Text>
+<Text style={styles.text} >Informe o endereï¿½o onde pegaremos sua encomenda</Text>
+      {/* <CustomInput placeholder="CEP" />
       <CustomInput placeholder="Bairro" />
       <CustomInput placeholder="Rua" />
-      <CustomInput placeholder="Número" />
+      <CustomInput placeholder="Nï¿½mero" /> */}
 
-      <Button text="Avançar" onPress={() => {}} />
+      <Button text="Avanï¿½ar" onPress={goFinishDonation} />
     </View>
   );
 }

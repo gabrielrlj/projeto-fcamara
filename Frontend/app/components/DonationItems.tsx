@@ -24,8 +24,8 @@ export default function DonationItems() {
 
     const navigationHook = useNavigation<DonationNavigationProps>();
     function finishDonation(){
-        alert("Doação Realizada");
-        navigationHook.navigate('DonorDashboard');
+        //alert("Doação Realizada");
+        navigationHook.navigate('ConfirmAddres');
     }
 
     return (

@@ -51,6 +51,8 @@ export const DonorNavigator = {
     screens: {
       DonorDashboard: 'donorDashboard',
       ConfirmationDonation: 'confirmationDonation',
+      ConfirmAddress: 'confirmAddres',
+      FinishDonation: 'finishDonation',
       DrawerUserData: 'drawerUserData'
     }
   },

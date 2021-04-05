@@ -77,7 +77,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     <View style={styles.container}>
       <Image source={logo} style={styles.image} />
       <TextInput placeholder='E-mail' style={styles.input}
-        autoFocus={true} keyboardType='email-address'
+        autoFocus={false} keyboardType='email-address'
         value={email}
         //toda vez que mudar o texto chama a função handleChangeEmail e muda o valor da variável com o valor digitado
         onChangeText={e => {
@@ -85,7 +85,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
         }}>
       </TextInput>
       <TextInput placeholder='Senha' style={styles.input}
-        autoFocus={true} secureTextEntry={true}
+        autoFocus={false} secureTextEntry={true}
         value={password}
         onChangeText={e => {
           handleChangePassword(e);
@@ -116,15 +116,15 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
       </View>
 
       <TouchableOpacity onPress={handleLoginButtonClick} style={styles.buttomLogin}>
-        <Text style={styles.buttomText}>ENTRAR</Text>
+        <Text style={styles.buttomText}>Entrar</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={registerDonorScreen} style={styles.buttom}>
-        <Text style={styles.buttomText}>CADASTRAR COMO DOADOR</Text>
+        <Text style={styles.buttomText}>Cadastrar como doador</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleSponsorRegister} style={styles.buttom}>
-        <Text style={styles.buttomText}>CADASTRAR COMO BENEFICIADO</Text>
+        <Text style={styles.buttomText}>Cadastrar como beneficiado</Text>
       </TouchableOpacity>
     </View>
   )

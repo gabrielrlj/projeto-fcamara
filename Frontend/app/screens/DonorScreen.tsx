@@ -8,6 +8,8 @@ import Student from '../components/Student';
 import { UserContext } from '../contexts/UserContexts';
 import { DonorDashboardParamList, RootStackParamList, DonorNavigatorParamList } from '../types';
 import ConfirmationDonation from './ConfirmationDonation';
+import ConfirmAddres from './ConfirmAddres';
+import FinishDonation from './FinishDonation';
 import Header from '../components/Header';
 import HeaderBelow from '../components/HeaderBelow';
 import SearchStudents from "../components/SearchStudents";
@@ -37,6 +39,14 @@ export default function DonorNavigator() {
                 name="ConfirmationDonation"
                 component={ConfirmationDonation}
             />
+             <DonorStack.Screen
+                name="ConfirmAddres"
+                component={ConfirmAddres}
+            />
+             <DonorStack.Screen
+                name="FinishDonation"
+                component={FinishDonation}
+            />
         </DonorStack.Navigator>
     );
 }
@@ -54,16 +64,16 @@ function DonorDashboard({ navigation }: DonorProps ) {
         navigation.navigate('ConfirmationDonation');
     }
     
-    useEffect(() => {
-        api.get('/doadores/depenpendes')
-            .then(({data}) => {
-                console.log(data);
-                // quardar esse data numa variável
-            })
-            .catch(err => {
-                console.error(err);
-            });
-    }, []);
+    // useEffect(() => {
+    //     api.get('/doadores/depenpendes')
+    //         .then(({data}) => {
+    //             console.log(data);
+    //             // quardar esse data numa variável
+    //         })
+    //         .catch(err => {
+    //             console.error(err);
+    //         });
+    // }, []);
 
     return (
       <View style={{flex: 1, overflow: 'visible'}}>

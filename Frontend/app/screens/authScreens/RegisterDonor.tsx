@@ -65,7 +65,7 @@ export default function RegisterDonor({ navigation, route }: RegisterDonorProps)
       </TextInput>
 
       <TouchableOpacity onPress={goLogin} style={styles.buttom}>
-        <Text style={styles.buttomText}>CADASTRAR</Text>
+        <Text style={styles.buttomText}>Confirmar</Text>
       </TouchableOpacity>
     </View>
   )
