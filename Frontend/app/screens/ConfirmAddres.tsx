@@ -23,14 +23,14 @@ export default function ConfirmAddres() {
 
   return (
     <View style={styles.container} >
-      <Text style={styles.text} >Uma doa��o ser� entregue via transportadora</Text>
-<Text style={styles.text} >Informe o endere�o onde pegaremos sua encomenda</Text>
+      <Text style={styles.text} >Uma doação será entregue via transportadora</Text>
+<Text style={styles.text} >Informe o endereço onde pegaremos sua encomenda</Text>
       {/* <CustomInput placeholder="CEP" />
       <CustomInput placeholder="Bairro" />
       <CustomInput placeholder="Rua" />
       <CustomInput placeholder="N�mero" /> */}
 
-      <Button text="Avan�ar" onPress={goFinishDonation} />
+      <Button text="Avançar" onPress={goFinishDonation} />
     </View>
   );
 }
