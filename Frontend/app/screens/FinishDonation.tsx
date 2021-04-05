@@ -22,7 +22,7 @@ export default function ConfirmAddres() {
 
       <Button text="Baixar Boleto" onPress={() => {}} />
 
-      <Button text="Confirmar Doação" onPress={goDonorScreen} />
+      <Button text="Voltar a tela inicial" onPress={goDonorScreen} />
     </View>
   );
 }
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 28,
     fontWeight: '700',
-    color: '#000',
+    color:'#6A2565',
   }
 });
