@@ -20,7 +20,7 @@ export default function HeaderAdress() {
 const styles = StyleSheet.create({
     container: {
         marginTop: Platform.OS === 'ios' ? 20 : 0,
-        padding: 1,
+        padding: 5,
         borderBottomWidth: 1,
         backgroundColor: '#6A2565',
         borderColor: '#6A2565',
