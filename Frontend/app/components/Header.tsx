@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 export default function Header() {
-    var titleHeader = "LISTA ESCOLAR";
+    var titleHeader = "Lista de Alunos";
     return (
         <View style={styles.container}>
             <View style={styles.rowContainer}>
