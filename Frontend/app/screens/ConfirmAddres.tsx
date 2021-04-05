@@ -53,15 +53,15 @@ container: {
 text: {
 paddingTop: 1,
 
-fontSize: 28,
-color: '#333',
+fontSize: 25,
+color:'#6A2565',
 textAlign:'center',
 paddingLeft: 5,
-
+fontWeight: 'bold',
 },
 buttom: {
 
-marginTop: 30,
+marginTop: 25,
 padding: 10,
 backgroundColor: '#0166FC',
 borderRadius: 10,
