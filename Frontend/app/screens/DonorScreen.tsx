@@ -48,8 +48,6 @@ export default function DonorNavigator() {
                     textAlign:'center',
                     textAlignVertical:'center',
                     width:'100%',
-                    // paddingTop:30,
-                    // paddingLeft:-50,
                     marginLeft:-20,
                     marginTop:20
                 },

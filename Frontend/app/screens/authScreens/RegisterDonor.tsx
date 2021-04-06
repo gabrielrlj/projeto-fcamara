@@ -113,7 +113,8 @@ const styles = StyleSheet.create({
     color:'#6A2565',
     fontSize:35,
     fontWeight:'bold',
-    fontFamily:'roboto'
+    fontFamily:'roboto',
+    marginBottom:45
   }
 
 })
