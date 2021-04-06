@@ -19,7 +19,7 @@ export default function ConfirmAddres() {
 
   return (
     <View style={styles.container} >
-      <HeaderFinishDonation/>
+      {/* <HeaderFinishDonation/> */}
       <View style={styles.subContainer}>
        <Text style={styles.text} >Não deixe de pagar o boleto para a sua doação ser efetivada!</Text>
 
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width:'85%',
-    marginTop:-30
+    marginTop:60
   },
   text: {
     fontSize: 22,

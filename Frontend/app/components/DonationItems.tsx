@@ -31,9 +31,12 @@ export default function DonationItems() {
     return (
 
         <View style={styles.container}>
-            <View>
+            {/* <View>
                 <Header />
-            </View>
+            </View> */}
+
+            <Text style={styles.textName}>Ana Clara Maciel</Text>
+            <Text style={styles.textSchool}>Escola Estadual Recanto</Text>
             <View style={{ backgroundColor: "#F6F3EC" }} >
                 <View style={styles.radioButtonContainer}>
                     <View style={styles.radioButton}>
@@ -82,20 +85,22 @@ export default function DonationItems() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: "column"
+        flexDirection: "column", 
     },
-    containerText: {
-        alignItems: 'flex-start',
-        padding: 40,
-        fontSize: 90
-    },
-    textName: {
-        fontSize: 20,
-        color: 'white',
+    textName:{
+        fontWeight: 'bold', 
+        fontFamily: 'roboto',
+        color:'#47525E',
+        fontSize:20, 
+        marginTop:35,
+        paddingLeft:30
     },
     textSchool: {
-        fontSize: 15,
-        color: 'white'
+        color:'#969FAA',
+        marginTop:10,
+        fontFamily: 'roboto',
+        fontSize:17,
+        paddingLeft:30       
     },
     buttom: {
         marginTop: 200,
@@ -115,8 +120,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         padding: 20
     },
-
-
     radioButton: {
         flexDirection: 'row',
         justifyContent: 'flex-end',

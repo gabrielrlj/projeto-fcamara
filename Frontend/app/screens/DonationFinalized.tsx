@@ -19,7 +19,7 @@ export default function ConfirmAddres() {
 
   return (
     <View style={styles.container} >
-        <HeaderDonationFinalized/>
+        {/* <HeaderDonationFinalized/> */}
         <View style={styles.containerText} >
         <Text style={styles.textCongratulations} >Parabéns!</Text>
 
@@ -53,15 +53,17 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color:'#6A2565',
     textAlign:'center',
-    paddingTop:50
+    paddingTop:120, 
+    fontFamily:'roboto'
   },
   textDonationRegister: {
     fontSize: 25,
     fontWeight: 'bold',
     color:'#6A2565',
     textAlign:'center',
-    paddingTop:30,
-    alignItems:'center'
+    paddingTop:35,
+    alignItems:'center',
+    fontFamily:'roboto'
   },
   buttom: {
     marginTop: 120,

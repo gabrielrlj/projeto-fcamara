@@ -22,7 +22,7 @@ navigationHook.navigate('FinishDonation');
 
 return (
 <View style={styles.container} >
-<HeaderAdress/>
+{/* <HeaderAdress/> */}
 
 <Text style={styles.text} >Sua doação será entregue via transportadora</Text>
 <Text style={styles.text} >Informe o endereço onde pegaremos sua encomenda</Text>
@@ -40,51 +40,49 @@ return (
 );
 }
 
-const styles = StyleSheet.create({
-container: {
-  flex: 1,
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  fontSize: 40,
-  backgroundColor: '#F6F3EC',
-  
+  const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontSize: 40,
+    backgroundColor: '#F6F3EC',
+  },
+  text: {
+    paddingTop: 10,
+    fontSize: 23,
+    color:'#6A2565',
+    textAlign:'center',
+    paddingLeft: 5,
+    fontWeight: 'bold',
+  },
+  buttom: {
+    marginTop: 25,
+    padding: 10,
+    backgroundColor: '#0166FC',
+    borderRadius: 10,
+    height:55,
+    width: 300,
+    marginBottom:25,
+    textAlign:'center'
+  },
 
-},
-text: {
-paddingTop: 1,
+  buttomText: {
+    fontSize: 28,
+    color: '#fff',
+    textAlign: 'center',
+    fontFamily:'roboto'
+  }, 
 
-fontSize: 25,
-color:'#6A2565',
-textAlign:'center',
-paddingLeft: 5,
-fontWeight: 'bold',
-},
-buttom: {
-
-marginTop: 25,
-padding: 10,
-backgroundColor: '#0166FC',
-borderRadius: 10,
-height:55,
-width: 300,
-},
-
-buttomText: {
-fontSize: 28,
-color: '#fff',
-textAlign: 'center',
-fontFamily:'roboto'
-}, 
-
-input: {
-marginTop: 10,
-width: '90%',
-backgroundColor: '#DAE1E8',
-height: 50,
-borderWidth: 1,
-borderColor: '#333',
-borderRadius: 10,
-paddingLeft: 10
-}
+  input: {
+    marginTop: 6,
+    width: '90%',
+    backgroundColor: '#DAE1E8',
+    height: 42,
+    borderWidth: 1,
+    borderColor: '#333',
+    borderRadius: 10,
+    paddingLeft: 10
+  }
 
 })

@@ -14,6 +14,7 @@ export default function AuthStackTab() {
       <AuthStack.Screen
         name="DefaultLogin"
         component={DefaultLogin}
+        options={{ header: () => null }}
       />
       <AuthStack.Screen
         name="RegisterDonor"
