@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     },
     rowContainer: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'center'
     },
     title: {
         color: '#FFF',

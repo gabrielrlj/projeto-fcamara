@@ -31,26 +31,54 @@ export default function DonorNavigator() {
     return (
         <DonorStack.Navigator
             initialRouteName="DonorDashboard"
+            screenOptions={{
+                headerStyle: {
+                  backgroundColor: '#6A2565',
+                  height: 80,
+                  borderTopWidth:20,
+                  borderTopColor:'#FFFF'
+                },
+                headerLeftContainerStyle: { marginTop: 20 },
+                headerTintColor: '#FFFFFF',
+                headerTitleStyle: {
+                    color: '#FFF',
+                    height: 50,
+                    fontSize: 25,
+                    fontFamily: 'roboto', 
+                    textAlign:'center',
+                    textAlignVertical:'center',
+                    width:'100%',
+                    // paddingTop:30,
+                    // paddingLeft:-50,
+                    marginLeft:-20,
+                    marginTop:20
+                },
+              }}
         >
             <DonorStack.Screen
                 name="DonorDashboard"
                 component={DonorDashboard}
+                options={{ header: () => null}}
             />
             <DonorStack.Screen
                 name="ConfirmationDonation"
                 component={ConfirmationDonation}
+                options={{ title:'Lista Escolar'}}
             />
              <DonorStack.Screen
                 name="ConfirmAddres"
                 component={ConfirmAddres}
+                options={{ title:'Finalizar Doação'}}
             />
              <DonorStack.Screen
                 name="FinishDonation"
                 component={FinishDonation}
+                options={{ title:'Finalização Doação'}}
             />
             <DonorStack.Screen
                 name="DonationFinalized"
                 component={DonationFinalized}
+                options={{ title:'Confirmação'}}
             />
         </DonorStack.Navigator>
     );
@@ -81,19 +109,10 @@ function DonorDashboard({ navigation }: DonorProps ) {
     // }, []);
 
     return (
-      <View style={{flex: 1, overflow: 'visible'}}>
-        {/* <Header/> */}
+      <View style={{flex: 1, overflow: 'visible', marginTop:25}}>
         <HeaderBelow/>
-
-        {/* <Text>{username}</Text> */}
         <ScrollView style={styles.studentsContainer}>
-            {/* mapear a variavel do data aqui criando um componente Student pra cada */}
-            <Student />
-            {/* <Student />
-            <Student />
-            <Student />
-            <Student />
-            <Student /> */}
+            <Student />            
         </ScrollView>
       </View>
     );
@@ -102,6 +121,6 @@ function DonorDashboard({ navigation }: DonorProps ) {
   const styles = StyleSheet.create({
       studentsContainer: {
           flexDirection: 'column',
-          flex: 1,
+          flex: 1
       }
   })

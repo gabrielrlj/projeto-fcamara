@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     width: '90%'
   },
   buttomText: {
-    fontSize: 17,
+    fontSize: 20,
     color: '#fff',
     textAlign: 'center'
   },
