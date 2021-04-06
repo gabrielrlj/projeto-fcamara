@@ -1,8 +1,9 @@
 import { RouteProp, useNavigation } from '@react-navigation/core';
 import { createStackNavigator, StackNavigationProp } from '@react-navigation/stack';
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
+import { UserContext } from '../contexts/UserContexts';
 import { RootStackParamList, SponsorNavigatorParamList } from '../types';
 import RegisterMaterials from './RegisterMaterials';
 
@@ -91,6 +92,7 @@ interface SponsorProps {
 }
 
 function SponsorDashboard({ navigation }: SponsorProps) {
+  const { username } = useContext(UserContext);
   const navigationHook = useNavigation<DashboardNavigationProps>();
 
   function handleRegisterMaterialsButton() {
@@ -103,7 +105,7 @@ function SponsorDashboard({ navigation }: SponsorProps) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text} >Página inicial (Responsável)</Text>
+      <Text style={styles.text} >Página inicial de(a) {username}</Text>
       <Button onPress={handleRegisterMaterialsButton} text="Cadastrar materiais" />
       <Button onPress={handleLogOutButton} text="Sair" />
     </View>

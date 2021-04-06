@@ -1,10 +1,10 @@
 import { StackNavigationProp } from '@react-navigation/stack'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { RouteProp, useNavigation } from '@react-navigation/native'
 import { AuthTabParamList, RootStackParamList } from '../../types';
-import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image } from 'react-native'
-// import IconLogin from '../../assets/images/elo-escolar-1.png'
+import { StyleSheet, View, Text, TouchableOpacity, TextInput, Image, Alert } from 'react-native'
 import { Checkbox } from 'react-native-paper';
+import { UserContext } from '../../contexts/UserContexts';
 
 type RootNavigationProps = StackNavigationProp<RootStackParamList, 'AuthDefault'>;
 type AuthNavigationProps = StackNavigationProp<AuthTabParamList, 'DefaultLogin'>;
@@ -17,26 +17,46 @@ interface LoginProps {
 }
 
 export default function DefaultLogin({ navigation, route }: LoginProps) {
+  const logo =  require('../../assets/images/elo-escolar-1.png');
+
+  const { login } = useContext(UserContext);
   const navigationHook = useNavigation<RootNavigationProps>();
 
   // hook - constante criada nome email e setEmail function que define valor de email. Usestate é o estado atual
   // state se inicia com null
+  const [id, setId] = useState(0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [checkedDonor, setCheckedDonor] = useState(false);
+  const [checkedSponsor, setCheckedSponsor] = useState(false);
 
   function registerDonorScreen() {
     navigation.navigate('RegisterDonor');
   }
 
-  function handleLoginButtonClick() {
+  async function handleLoginButtonClick() {
     
     //Verifica se marcou como usuário Doador ou responsavel pelo aluno
     if (checkedSponsor) {
-      navigationHook.navigate('Dashboard');
+      const hadSuccess = await login(id, email, password, 'sponsor');
+      if (hadSuccess) {
+        // navigationHook.navigate('Dashboard');
+      }
+
     } else if (checkedDonor) {
-      navigationHook.navigate('DonorDashboard');
+      const hadSuccess = await login(id, email, password, 'donor');
+      if (hadSuccess) {
+        setId(id);
+        setEmail(email);
+        navigationHook.navigate('DonorDashboard');
+      }
     } else {
-      alert('É preciso selecionar uma das opções: (Sou Doador ou Beneficiado)');
+      Alert.alert(
+        "Atenção",
+        "Por favor marque uma das opções de login\nSou Doador ou Beneficiado",
+      );
+      // alert('É preciso selecionar uma das opções: ');
     }
   }
 
@@ -53,14 +73,11 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
     setPassword(e);
   }
 
-  const [checkedDonor, setCheckedDonor] = React.useState(false);
-  const [checkedSponsor, setCheckedSponsor] = React.useState(false);
-
   return (
     <View style={styles.container}>
-      {/* <Image source={IconLogin} style={styles.image} /> */}
+      <Image source={logo} style={styles.image} />
       <TextInput placeholder='E-mail' style={styles.input}
-        autoFocus={true} keyboardType='email-address'
+        autoFocus={false} keyboardType='email-address'
         value={email}
         //toda vez que mudar o texto chama a função handleChangeEmail e muda o valor da variável com o valor digitado
         onChangeText={e => {
@@ -68,13 +85,14 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
         }}>
       </TextInput>
       <TextInput placeholder='Senha' style={styles.input}
-        autoFocus={true} secureTextEntry={true}
+        autoFocus={false} secureTextEntry={true}
         value={password}
         onChangeText={e => {
           handleChangePassword(e);
         }}>
       </TextInput>
       <View style={styles.checkBoxContainer}>
+        <Text style={styles.text}>Selecione como deseja entrar</Text>
         <View style={styles.checkBox}>
           <Checkbox
             status={checkedDonor ? 'checked' : 'unchecked'}
@@ -83,7 +101,7 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
               setCheckedSponsor(false);
             }}
           />
-          <Text style={styles.Text}> Sou Doador!</Text>
+          <Text style={styles.textType}>Doador</Text>
         </View>
         <View style={styles.checkBox}>
           <Checkbox
@@ -93,20 +111,20 @@ export default function DefaultLogin({ navigation, route }: LoginProps) {
               setCheckedDonor(false);
             }}
           />
-          <Text style={styles.Text}> Sou beneficiado!</Text>
+          <Text style={styles.textType}>Beneficiado</Text>
         </View>
       </View>
 
-      <TouchableOpacity onPress={handleLoginButtonClick} style={styles.buttom}>
+      <TouchableOpacity onPress={handleLoginButtonClick} style={styles.buttomLogin}>
         <Text style={styles.buttomText}>Entrar</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={registerDonorScreen} style={styles.buttom}>
-        <Text style={styles.buttomText}>Cadastre-se como doador</Text>
+        <Text style={styles.buttomText}>Cadastrar como doador</Text>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleSponsorRegister} style={styles.buttom}>
-        <Text style={styles.buttomText}>Cadastre-se como beneficiado</Text>
+        <Text style={styles.buttomText}>Cadastrar como beneficiado</Text>
       </TouchableOpacity>
     </View>
   )
@@ -119,14 +137,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 40,
     fontWeight: 'bold',
-    backgroundColor: '#f8f8ff',
+    backgroundColor: '#F6F3EC',
+  },
+  buttomLogin:{
+    marginTop: 23,
+    padding: 8,
+    backgroundColor: '#0166FC',
+    borderRadius: 10,
+    width: '90%'
   },
   buttom: {
-    marginTop: 30,
-    padding: 10,
-    backgroundColor: 'gray',
+    marginTop: 23,
+    padding: 8,
+    backgroundColor: '#6A2565',
     borderRadius: 10,
-    width: '90%',
+    width: '90%'
   },
   buttomText: {
     fontSize: 20,
@@ -136,29 +161,44 @@ const styles = StyleSheet.create({
   input: {
     marginTop: 20,
     width: '90%',
-    backgroundColor: '#EEE',
+    backgroundColor: '#DAE1E8',
     height: 40,
     borderWidth: 1,
     borderColor: '#333',
     borderRadius: 10,
-    paddingLeft: 10
+    paddingLeft: 10, 
+    fontFamily: 'roboto'
   },
   image: {
-    width: 250,
-    height: 250,
-    borderRadius: 0
+    width: 200,
+    height: 200,
+    borderRadius: 0,
+    marginBottom:-30,
+    marginTop:-25
   },
   checkBox: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'flex-start',
+    fontFamily: 'roboto'
   },
   checkBoxContainer: {
     width: '90%',
     alignItems: 'flex-start'
   },
-  Text: {
+  textType: {
     padding: 8,
-    paddingLeft: 3
+    paddingLeft: 3, 
+    fontFamily: 'roboto',
+    color:'#47525E',
+    fontWeight:'bold',
+    fontSize:15
+  },
+  text: {
+    padding: 5,
+    paddingLeft: 3, 
+    fontFamily: 'roboto',
+    color:'#969FAA',
+    fontSize:15
   }
 })

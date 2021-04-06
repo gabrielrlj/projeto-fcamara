@@ -1,17 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Button from '../components/Button';
-import CustomInput from '../../components/CustomInput';
+//import CustomInput from '../../components/CustomInput';
 
 export default function ConfirmAddres() {
 
   return (
     <View style={styles.container} >
-      <Text style={styles.text} >Não deixe de pagar o boleto para a sua doação ser efetiva!</Text>
+      <Text style={styles.text} >Nï¿½o deixe de pagar o boleto para a sua doaï¿½ï¿½o ser efetiva!</Text>
 
       <Button text="Baixar Boleto" onPress={() => {}} />
 
-      <Button text="Confirmar Doação" onPress={() => {}} />
+      <Button text="Confirmar Doaï¿½ï¿½o" onPress={() => {}} />
     </View>
   );
 }
