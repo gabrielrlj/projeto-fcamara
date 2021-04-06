@@ -40,9 +40,8 @@ export default function RegisterDonor({ navigation, route }: RegisterDonorProps)
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Seja um doador</Text>
       <TextInput placeholder='E-mail' style={styles.input}
-        autoFocus={false} keyboardType='email-address'
+        autoFocus={true} keyboardType='email-address'
         value={email}
         //toda vez que mudar o texto chama a função handleChangeEmail e muda o valor da variável com o valor digitado
         onChangeText={e => {
@@ -50,14 +49,14 @@ export default function RegisterDonor({ navigation, route }: RegisterDonorProps)
         }}>
       </TextInput>
       <TextInput placeholder='Senha' style={styles.input}
-        autoFocus={false} secureTextEntry={true}
+        autoFocus={true} secureTextEntry={true}
         value={password}
         onChangeText={e => {
           handleChangePassword(e);
         }}>
       </TextInput>
       <TextInput placeholder='Confirme a senha' style={styles.input}
-        autoFocus={false} secureTextEntry={true}
+        autoFocus={true} secureTextEntry={true}
         value={confirmPassword}
         onChangeText={e => {
           handleChangeConfirmPassword(e);
@@ -65,7 +64,7 @@ export default function RegisterDonor({ navigation, route }: RegisterDonorProps)
       </TextInput>
 
       <TouchableOpacity onPress={goLogin} style={styles.buttom}>
-        <Text style={styles.buttomText}>Confirmar</Text>
+        <Text style={styles.buttomText}>Cadastrar</Text>
       </TouchableOpacity>
     </View>
   )
@@ -79,25 +78,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 40,
     fontWeight: 'bold',
-    backgroundColor: '#F6F3EC'
+    backgroundColor: '#f8f8ff'
   },
   buttom: {
     marginTop: 30,
     padding: 10,
-    backgroundColor: '#0166FC',
+    backgroundColor: 'gray',
     borderRadius: 10,
     width: '90%',
   },
   buttomText: {
     fontSize: 20,
     color: '#fff',
-    textAlign: 'center',
-    fontFamily:'roboto'
+    textAlign: 'center'
   },
   input: {
     marginTop: 20,
     width: '90%',
-    backgroundColor: '#DAE1E8',
+    backgroundColor: '#EEE',
     height: 40,
     borderWidth: 1,
     borderColor: '#333',
@@ -109,12 +107,5 @@ const styles = StyleSheet.create({
     height: 250,
     borderRadius: 0
   },
-  text:{
-    color:'#6A2565',
-    fontSize:35,
-    fontWeight:'bold',
-    fontFamily:'roboto',
-    marginBottom:45
-  }
 
 })
